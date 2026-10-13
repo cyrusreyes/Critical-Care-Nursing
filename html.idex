@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Care Nursing | Quiz Simulator</title>
+    <style>
+        :root {
+            --primary-bg: #0f172a; /* Deep medical blue */
+            --card-bg: #1e293b;
+            --accent: #0ea5e9; /* Scrubs blue */
+            --accent-hover: #0284c7;
+            --correct: #10b981;
+            --incorrect: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        h1 { margin: 0; font-size: 1.5rem; color: var(--accent); }
+        .stats { font-size: 0.9rem; color: var(--text-muted); display: flex; gap: 15px;}
+        .timer { font-weight: bold; color: #f59e0b; }
+        
+        /* Dashboard / Leaderboard */
+        #dashboard { display: block; }
+        .topic-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 5px;
+            transition: 0.3s;
+        }
+        .topic-btn:hover { background-color: var(--accent-hover); }
+        .history-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .history-table th, .history-table td { border: 1px solid #334155; padding: 10px; text-align: left; }
+        
+        /* Quiz Area */
+        #quiz-area { display: none; }
+        .progress-tracker { margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted); }
+        .question-text { font-size: 1.2rem; margin-bottom: 20px; line-height: 1.5; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .option {
+            background-color: #334155;
+            border: 2px solid transparent;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+            color: var(--text-main);
+            text-align: left;
+        }
+        .option:hover:not(:disabled) { background-color: #475569; border-color: var(--accent); }
+        .option:disabled { cursor: not-allowed; }
+        .option.correct { background-color: rgba(16, 185, 129, 0.2); border-color: var(--correct); }
+        .option.incorrect { background-color: rgba(239, 68, 68, 0.2); border-color: var(--incorrect); }
+        
+        /* Rationale */
+        #rationale-box {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #0f172a;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+        }
+        #rationale-box h4 { margin: 0 0 5px 0; color: var(--accent); }
+        .next-btn {
+            background-color: var(--correct);
+            color: white; border: none; padding: 12px 25px;
+            border-radius: 6px; cursor: pointer; font-size: 1rem;
+            margin-top: 15px; display: none; float: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Critical Care Nursing</h1>
+        <div class="stats">
+            <span id="score-display">Score: 0</span>
+            <span class="timer" id="timer-display">Time: 00:00</span>
+        </div>
+    </header>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+        <h2>Select a Module</h2>
+        <button class="topic-btn" onclick="startQuiz('all')">Comprehensive Exam (Shuffled)</button>
+        <button class="topic-btn" onclick="startQuiz('scope')">Scope & Ethics</button>
+        <button class="topic-btn" onclick="startQuiz('assessment')">Assessment & Triage</button>
+        <button class="topic-btn" onclick="startQuiz('respiratory')">Respiratory & ABGs</button>
+        
+        <h3 style="margin-top: 30px;">Session History / Leaderboard</h3>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="history-body">
+                <!-- History rows go here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Quiz Area -->
+    <div id="quiz-area">
+        <div class="progress-tracker" id="progress-text">Question 1 of 10 | Topic: Respiratory</div>
+        <div class="question-text" id="question-text">Question goes here...</div>
+        <div class="options" id="options-container">
+            <!-- Buttons injected here -->
+        </div>
+        
+        <div id="rationale-box">
+            <h4>Rationale</h4>
+            <p id="rationale-text">Explanation goes here...</p>
+        </div>
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question &rarr;</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Database (Sourced from notebook context)
+    const allQuestions = [
+        {
+            topic: 'scope',
+            category: 'Scope of Critical Care',
+            q: 'What are the primary goals of critical care nursing?',
+            options: [
+                'Ensure survival, restore quality of life, and help families cope.',
+                'Prioritize routine ward care over specialized intervention.',
+                'Discharge the patient as rapidly as possible to reduce hospital costs.',
+                'Focus exclusively on the physiological needs of the patient.'
+            ],
+            correct: 0,
+            rationale: 'Critical care aims to ensure the survival of critically ill patients, restore their quality of life, and help their families cope with the stress of the illness (Introduction to Critical Care).'
+        },
+        {
+            topic: 'scope',
+            category: 'Acuity Classification',
+            q: 'How is a Level III critical care client classified?',
+            options: [
+                'Needs normal ward care.',
+                'At risk of deteriorating.',
+                'Needs more observation or intervention.',
+                'Experiencing multisystem failure.'
+            ],
+            correct: 3,
+            rationale: 'Patients are classified from Level 0 (normal ward care) to Level III (multisystem failure) based on clinical acuity.'
+        },
+        {
+            topic: 'scope',
+            category: 'Ethical Considerations',
+            q: 'Which ethical principle mandates the explicit duty to intentionally do no harm?',
+            options: [
+                'Beneficence',
+                'Nonmaleficence',
+                'Justice',
+                'Fidelity'
+            ],
+            correct: 1,
+            rationale: 'Nonmaleficence is the ethical principle that mandates the explicit duty to intentionally do no harm to the patient.'
+        },
+        {
+            topic: 'assessment',
+            category: 'Assessment Framework',
+            q: 'What are the parameters for the "ABCDE" admission-quick check?',
+            options: [
+                'Airway, Breathing, Circulation/Cerebral perfusion, Drugs/Diagnostic tests, Equipment',
+                'Airway, Bleeding, Circulation, Defibrillation, Epinephrine',
+                'Assessment, Breathing, Cardiac, Diagnostics, Evaluation',
+                'Alertness, Blood pressure, Core temp, Drips, Extubation'
+            ],
+            correct: 0,
+            rationale: 'The ABCDE parameter stands for Airway, Breathing, Circulation/Cerebral perfusion/Chief complaint, Drugs and diagnostic tests, and Equipment.'
+        },
+        {
+            topic: 'assessment',
+            category: 'Assessment Framework',
+            q: 'What is the primary purpose of the Pre-Arrival Assessment?',
+            options: [
+                'To establish a comprehensive psychosocial baseline.',
+                'To determine the possible clinical picture and anticipate needed resources before the patient arrives.',
+                'To evaluate the outcome of the disease process.',
+                'To perform a head-to-toe physical examination.'
+            ],
+            correct: 1,
+            rationale: 'It allows the nurse to anticipate the specific resources and equipment needed before the patient arrives in the unit.'
+        },
+        {
+            topic: 'respiratory',
+            category: 'Arterial Blood Gases',
+            q: 'When interpreting an ABG, what does a pH below 7.35 indicate?',
+            options: [
+                'Normal acid-base balance',
+                'Alkalemia',
+                'Acidemia',
+                'Hypoxemia'
+            ],
+            correct: 2,
+            rationale: 'A normal pH range is 7.35–7.45. A pH below 7.35 indicates acidemia, while a pH above 7.45 indicates alkalemia.'
+        },
+        {
+            topic: 'respiratory',
+            category: 'Arterial Blood Gases',
+            q: 'What does a PaO2/FiO2 (P/F) ratio below 200 strongly indicate?',
+            options: [
+                'Mild asthma',
+                'Normal lung function',
+                'Chronic obstructive pulmonary disease',
+                'Acute respiratory distress syndrome (ARDS)'
+            ],
+            correct: 3,
+            rationale: 'A P/F ratio below 200 is strongly indicative of ARDS and severe intrapulmonary shunting.'
+        }
+    ];
+
+    let currentQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let timerInterval;
+    let secondsElapsed = 0;
+    let currentModule = '';
+
+    // Shuffler Utility
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    function startQuiz(topic) {
+        currentModule = topic;
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('quiz-area').style.display = 'block';
+        
+        if (topic === 'all') {
+            currentQuestions = [...allQuestions];
+        } else {
+            currentQuestions = allQuestions.filter(q => q.topic === topic);
+        }
+        
+        currentQuestions = shuffle(currentQuestions);
+        currentIndex = 0;
+        score = 0;
+        secondsElapsed = 0;
+        document.getElementById('score-display').innerText = `Score: 0`;
+        
+        startTimer();
+        loadQuestion();
+    }
+
+    function startTimer() {
+        clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            secondsElapsed++;
+            const m = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
+            const s = String(secondsElapsed % 60).padStart(2, '0');
+            document.getElementById('timer-display').innerText = `Time: ${m}:${s}`;
+        }, 1000);
+    }
+
+    function loadQuestion() {
+        document.getElementById('next-btn').style.display = 'none';
+        document.getElementById('rationale-box').style.display = 'none';
+        
+        const q = currentQuestions[currentIndex];
+        document.getElementById('progress-text').innerText = `Question ${currentIndex + 1} of ${currentQuestions.length} | Category: ${q.category}`;
+        document.getElementById('question-text').innerText = q.q;
+        
+        const optsContainer = document.getElementById('options-container');
+        optsContainer.innerHTML = '';
+        
+        q.options.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option';
+            btn.innerText = opt;
+            btn.onclick = () => selectAnswer(index, btn);
+            optsContainer.appendChild(btn);
+        });
+    }
+
+    function selectAnswer(selectedIndex, btnElement) {
+        const q = currentQuestions[currentIndex];
+        const buttons = document.querySelectorAll('.option');
+        
+        // Disable all buttons
+        buttons.forEach(b => b.disabled = true);
+        
+        // Check correctness
+        if (selectedIndex === q.correct) {
+            btnElement.classList.add('correct');
+            score++;
+            document.getElementById('score-display').innerText = `Score: ${score}`;
+        } else {
+            btnElement.classList.add('incorrect');
+            buttons[q.correct].classList.add('correct'); // Highlight actual correct answer
+        }
+        
+        // Show rationale
+        document.getElementById('rationale-text').innerText = q.rationale;
+        document.getElementById('rationale-box').style.display = 'block';
+        
+        // Show next button
+        document.getElementById('next-btn').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+        currentIndex++;
+        if (currentIndex < currentQuestions.length) {
+            loadQuestion();
+        } else {
+            endQuiz();
+        }
+    }
+
+    function endQuiz() {
+        clearInterval(timerInterval);
+        const m = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
+        const s = String(secondsElapsed % 60).padStart(2, '0');
+        const finalTime = `${m}:${s}`;
+        
+        // Save to history
+        const tbody = document.getElementById('history-body');
+        const row = document.createElement('tr');
+        const dateStr = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
+        row.innerHTML = `<td>${currentModule.toUpperCase()}</td><td>${score} / ${currentQuestions.length}</td><td>${finalTime}</td><td>${dateStr}</td>`;
+        tbody.prepend(row);
+        
+        // Return to dashboard
+        document.getElementById('quiz-area').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+    }
+</script>
+</body>
+</html>
