@@ -6,15 +6,33 @@
     <title>Critical Care Nursing | Quiz Simulator</title>
     <style>
         :root {
-            --primary-bg: #0f172a; /* Deep medical blue */
-            --card-bg: #1e293b;
-            --accent: #0ea5e9; /* Scrubs blue */
-            --accent-hover: #0284c7;
+            /* Light Theme Defaults */
+            --primary-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #0284c7; 
+            --accent-hover: #0369a1;
             --correct: #10b981;
             --incorrect: #ef4444;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode {
+            /* Dark Theme Overrides */
+            --primary-bg: #0f172a; 
+            --card-bg: #1e293b;
+            --accent: #0ea5e9;
+            --accent-hover: #0284c7;
+            --correct: #059669;
+            --incorrect: #dc2626;
             --text-main: #f8fafc;
             --text-muted: #cbd5e1;
+            --border: #334155;
+            --shadow: rgba(0,0,0,0.5);
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--primary-bg);
@@ -25,101 +43,191 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
         }
+
         .container {
             background-color: var(--card-bg);
             border-radius: 12px;
             padding: 30px;
             width: 100%;
-            max-width: 800px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 900px;
+            box-shadow: 0 10px 25px var(--shadow);
+            border: 1px solid var(--border);
+            transition: background-color 0.3s, border 0.3s;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-        h1 { margin: 0; font-size: 1.5rem; color: var(--accent); }
-        .stats { font-size: 0.9rem; color: var(--text-muted); display: flex; gap: 15px;}
-        .timer { font-weight: bold; color: #f59e0b; }
         
-        /* Dashboard / Leaderboard */
-        #dashboard { display: block; }
-        .topic-btn {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 12px 20px;
+        h1 { margin: 0; font-size: 1.5rem; color: var(--accent); }
+        .header-controls { display: flex; align-items: center; gap: 15px; }
+        .stats { font-size: 0.95rem; font-weight: bold; color: var(--text-muted); display: flex; gap: 15px;}
+        .timer { color: #f59e0b; }
+        
+        #theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 5px 10px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 1rem;
-            margin: 5px;
-            transition: 0.3s;
+            font-size: 0.9rem;
+            transition: 0.2s;
         }
-        .topic-btn:hover { background-color: var(--accent-hover); }
-        .history-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .history-table th, .history-table td { border: 1px solid #334155; padding: 10px; text-align: left; }
+        #theme-toggle:hover { background-color: var(--border); }
+
+        /* Dashboard / Card Grid */
+        #dashboard { display: block; }
+        .dashboard-title { text-align: center; margin-bottom: 20px; font-weight: 600;}
         
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .topic-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            box-shadow: 0 4px 6px -1px var(--shadow);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 15px -3px var(--shadow);
+        }
+        
+        .topic-icon { font-size: 3rem; margin-bottom: 15px; }
+        .topic-title { font-weight: 700; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;}
+        .topic-count { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 8px;}
+        .topic-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;}
+
+        /* History Table */
+        .history-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem;}
+        .history-table th, .history-table td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+        .history-table th { background-color: var(--primary-bg); color: var(--text-main); }
+
         /* Quiz Area */
         #quiz-area { display: none; }
-        .progress-tracker { margin-bottom: 15px; font-size: 0.9rem; color: var(--text-muted); }
-        .question-text { font-size: 1.2rem; margin-bottom: 20px; line-height: 1.5; }
-        .options { display: flex; flex-direction: column; gap: 10px; }
+        .progress-tracker { margin-bottom: 15px; font-size: 0.95rem; font-weight: bold; color: var(--text-muted); }
+        .question-text { font-size: 1.25rem; margin-bottom: 20px; line-height: 1.5; font-weight: 600;}
+        .options { display: flex; flex-direction: column; gap: 12px; }
+        
         .option {
-            background-color: #334155;
-            border: 2px solid transparent;
-            padding: 15px;
+            background-color: var(--primary-bg);
+            border: 2px solid var(--border);
+            padding: 16px;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-main);
             text-align: left;
+            font-family: inherit;
         }
-        .option:hover:not(:disabled) { background-color: #475569; border-color: var(--accent); }
-        .option:disabled { cursor: not-allowed; }
-        .option.correct { background-color: rgba(16, 185, 129, 0.2); border-color: var(--correct); }
-        .option.incorrect { background-color: rgba(239, 68, 68, 0.2); border-color: var(--incorrect); }
+        
+        .option:hover:not(:disabled) { border-color: var(--accent); background-color: rgba(2, 132, 199, 0.05); }
+        .option:disabled { cursor: not-allowed; opacity: 0.9; }
+        .option.correct { background-color: rgba(16, 185, 129, 0.15); border-color: var(--correct); color: var(--text-main);}
+        .option.incorrect { background-color: rgba(239, 68, 68, 0.15); border-color: var(--incorrect); color: var(--text-main);}
         
         /* Rationale */
         #rationale-box {
             display: none;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #0f172a;
-            border-left: 4px solid var(--accent);
-            border-radius: 4px;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: var(--primary-bg);
+            border-left: 5px solid var(--accent);
+            border-radius: 6px;
+            line-height: 1.5;
         }
-        #rationale-box h4 { margin: 0 0 5px 0; color: var(--accent); }
+        #rationale-box h4 { margin: 0 0 10px 0; color: var(--accent); font-size: 1.1rem;}
+        
+        .btn-controls { display: flex; justify-content: space-between; margin-top: 20px;}
         .next-btn {
-            background-color: var(--correct);
+            background-color: var(--accent);
             color: white; border: none; padding: 12px 25px;
-            border-radius: 6px; cursor: pointer; font-size: 1rem;
-            margin-top: 15px; display: none; float: right;
+            border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold;
+            display: none; transition: 0.2s;
         }
+        .next-btn:hover { background-color: var(--accent-hover); }
+        .quit-btn {
+            background-color: transparent; color: var(--text-muted);
+            border: 1px solid var(--border); padding: 12px 20px;
+            border-radius: 6px; cursor: pointer; font-size: 1rem;
+        }
+        .quit-btn:hover { background-color: var(--border); color: var(--text-main);}
+        
     </style>
 </head>
-<body>
+<body class="light-mode">
 
 <div class="container">
     <header>
-        <h1>Critical Care Nursing</h1>
-        <div class="stats">
-            <span id="score-display">Score: 0</span>
-            <span class="timer" id="timer-display">Time: 00:00</span>
+        <h1>CCN Quiz Simulator</h1>
+        <div class="header-controls">
+            <button id="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+            <div class="stats">
+                <span id="score-display">Score: 0</span>
+                <span class="timer" id="timer-display">00:00</span>
+            </div>
         </div>
     </header>
 
     <!-- Dashboard -->
     <div id="dashboard">
-        <h2>Select a Module</h2>
-        <button class="topic-btn" onclick="startQuiz('all')">Comprehensive Exam (Shuffled)</button>
-        <button class="topic-btn" onclick="startQuiz('scope')">Scope & Ethics</button>
-        <button class="topic-btn" onclick="startQuiz('assessment')">Assessment & Triage</button>
-        <button class="topic-btn" onclick="startQuiz('respiratory')">Respiratory & ABGs</button>
+        <h2 class="dashboard-title">Select a Module</h2>
+        
+        <div class="topics-grid">
+            <div class="topic-card" onclick="startQuiz('ecg', 'ECG Interpretation')">
+                <div class="topic-icon">📉</div>
+                <div class="topic-title">ECG Interpretation</div>
+                <div class="topic-count">3 Questions</div>
+                <div class="topic-desc">PR interval, QRS duration, STEMI / Ischemia parameters</div>
+            </div>
+            
+            <div class="topic-card" onclick="startQuiz('abg', 'ABG Interpretation')">
+                <div class="topic-icon">🩸</div>
+                <div class="topic-title">ABG Interpretation</div>
+                <div class="topic-count">3 Questions</div>
+                <div class="topic-desc">Acid-Base imbalances, P/F ratios, Physiological Compensation</div>
+            </div>
+            
+            <div class="topic-card" onclick="startQuiz('assessment', 'Respiratory Assessment Techniques')">
+                <div class="topic-icon">🩺</div>
+                <div class="topic-title">Respiratory Assessment</div>
+                <div class="topic-count">3 Questions</div>
+                <div class="topic-desc">Percussion sounds, Tactile Fremitus, Auscultation (Crackles/Wheezes)</div>
+            </div>
+            
+            <div class="topic-card" onclick="startQuiz('ventilatory', 'Care of clients with altered ventilatory function')">
+                <div class="topic-icon">🫁</div>
+                <div class="topic-title">Altered Ventilatory Function</div>
+                <div class="topic-count">3 Questions</div>
+                <div class="topic-desc">ARDS, Volutrauma, Permissive Hypercapnia, NIF & Weaning</div>
+            </div>
+            
+            <div class="topic-card" onclick="startQuiz('hemodynamics', 'Hemodynamics & Cardiophysiology')">
+                <div class="topic-icon">💓</div>
+                <div class="topic-title">Hemodynamics & Cardio</div>
+                <div class="topic-count">3 Questions</div>
+                <div class="topic-desc">Preload, Afterload, CVP, Mixed Venous Oxygen (SvO2)</div>
+            </div>
+        </div>
         
         <h3 style="margin-top: 30px;">Session History / Leaderboard</h3>
         <table class="history-table">
@@ -132,121 +240,71 @@
                 </tr>
             </thead>
             <tbody id="history-body">
-                <!-- History rows go here -->
+                <!-- History rows injected here -->
             </tbody>
         </table>
     </div>
 
     <!-- Quiz Area -->
     <div id="quiz-area">
-        <div class="progress-tracker" id="progress-text">Question 1 of 10 | Topic: Respiratory</div>
+        <div class="progress-tracker" id="progress-text">Question 1 of 10</div>
         <div class="question-text" id="question-text">Question goes here...</div>
         <div class="options" id="options-container">
             <!-- Buttons injected here -->
         </div>
         
         <div id="rationale-box">
-            <h4>Rationale</h4>
+            <h4>Clinical Rationale</h4>
             <p id="rationale-text">Explanation goes here...</p>
         </div>
-        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question &rarr;</button>
+        
+        <div class="btn-controls">
+            <button class="quit-btn" onclick="endQuiz(true)">End Session</button>
+            <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question &rarr;</button>
+        </div>
     </div>
 </div>
 
 <script>
-    // Quiz Database (Sourced from notebook context)
-    const allQuestions = [
-        {
-            topic: 'scope',
-            category: 'Scope of Critical Care',
-            q: 'What are the primary goals of critical care nursing?',
-            options: [
-                'Ensure survival, restore quality of life, and help families cope.',
-                'Prioritize routine ward care over specialized intervention.',
-                'Discharge the patient as rapidly as possible to reduce hospital costs.',
-                'Focus exclusively on the physiological needs of the patient.'
-            ],
-            correct: 0,
-            rationale: 'Critical care aims to ensure the survival of critically ill patients, restore their quality of life, and help their families cope with the stress of the illness (Introduction to Critical Care).'
-        },
-        {
-            topic: 'scope',
-            category: 'Acuity Classification',
-            q: 'How is a Level III critical care client classified?',
-            options: [
-                'Needs normal ward care.',
-                'At risk of deteriorating.',
-                'Needs more observation or intervention.',
-                'Experiencing multisystem failure.'
-            ],
-            correct: 3,
-            rationale: 'Patients are classified from Level 0 (normal ward care) to Level III (multisystem failure) based on clinical acuity.'
-        },
-        {
-            topic: 'scope',
-            category: 'Ethical Considerations',
-            q: 'Which ethical principle mandates the explicit duty to intentionally do no harm?',
-            options: [
-                'Beneficence',
-                'Nonmaleficence',
-                'Justice',
-                'Fidelity'
-            ],
-            correct: 1,
-            rationale: 'Nonmaleficence is the ethical principle that mandates the explicit duty to intentionally do no harm to the patient.'
-        },
-        {
-            topic: 'assessment',
-            category: 'Assessment Framework',
-            q: 'What are the parameters for the "ABCDE" admission-quick check?',
-            options: [
-                'Airway, Breathing, Circulation/Cerebral perfusion, Drugs/Diagnostic tests, Equipment',
-                'Airway, Bleeding, Circulation, Defibrillation, Epinephrine',
-                'Assessment, Breathing, Cardiac, Diagnostics, Evaluation',
-                'Alertness, Blood pressure, Core temp, Drips, Extubation'
-            ],
-            correct: 0,
-            rationale: 'The ABCDE parameter stands for Airway, Breathing, Circulation/Cerebral perfusion/Chief complaint, Drugs and diagnostic tests, and Equipment.'
-        },
-        {
-            topic: 'assessment',
-            category: 'Assessment Framework',
-            q: 'What is the primary purpose of the Pre-Arrival Assessment?',
-            options: [
-                'To establish a comprehensive psychosocial baseline.',
-                'To determine the possible clinical picture and anticipate needed resources before the patient arrives.',
-                'To evaluate the outcome of the disease process.',
-                'To perform a head-to-toe physical examination.'
-            ],
-            correct: 1,
-            rationale: 'It allows the nurse to anticipate the specific resources and equipment needed before the patient arrives in the unit.'
-        },
-        {
-            topic: 'respiratory',
-            category: 'Arterial Blood Gases',
-            q: 'When interpreting an ABG, what does a pH below 7.35 indicate?',
-            options: [
-                'Normal acid-base balance',
-                'Alkalemia',
-                'Acidemia',
-                'Hypoxemia'
-            ],
-            correct: 2,
-            rationale: 'A normal pH range is 7.35–7.45. A pH below 7.35 indicates acidemia, while a pH above 7.45 indicates alkalemia.'
-        },
-        {
-            topic: 'respiratory',
-            category: 'Arterial Blood Gases',
-            q: 'What does a PaO2/FiO2 (P/F) ratio below 200 strongly indicate?',
-            options: [
-                'Mild asthma',
-                'Normal lung function',
-                'Chronic obstructive pulmonary disease',
-                'Acute respiratory distress syndrome (ARDS)'
-            ],
-            correct: 3,
-            rationale: 'A P/F ratio below 200 is strongly indicative of ARDS and severe intrapulmonary shunting.'
+    // Theme Toggle Logic
+    function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById('theme-toggle');
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            btn.innerText = '☀️ Light';
+        } else {
+            btn.innerText = '🌙 Dark';
         }
+    }
+
+    // Quiz Database
+    const allQuestions = [
+        // ECG
+        { topic: 'ecg', q: 'What does a prolonged PR interval (> 0.20 seconds) typically indicate?', options: ['Delayed conduction through the AV node', 'Acute transmural myocardial infarction', 'Ventricular repolarization abnormality', 'Bundle branch block'], correct: 0, rationale: 'A prolonged PR interval (normal is 0.12-0.20s) indicates delayed conduction through the AV node, commonly seen in first-degree AV block.' },
+        { topic: 'ecg', q: 'Which ECG finding is most indicative of an acute transmural myocardial infarction?', options: ['ST segment depression', 'ST segment elevation', 'Inverted P waves', 'Prolonged QT interval'], correct: 1, rationale: 'ST segment elevation typically indicates an acute transmural myocardial infarction, whereas ST depression often indicates myocardial ischemia.' },
+        { topic: 'ecg', q: 'What is the normal duration of the QRS complex?', options: ['0.12 to 0.20 seconds', 'Less than 0.12 seconds', '0.20 to 0.40 seconds', 'Greater than 0.20 seconds'], correct: 1, rationale: 'A normal QRS complex should not exceed 3 small squares, meaning it should be less than 0.12 seconds. Wider complexes indicate abnormal ventricular conduction.' },
+        
+        // ABG
+        { topic: 'abg', q: 'A patient's ABG shows pH 7.28, PaCO2 58 mm Hg, and HCO3 24 mEq/L. What is the interpretation?', options: ['Uncompensated respiratory acidosis', 'Partially compensated metabolic acidosis', 'Uncompensated metabolic alkalosis', 'Fully compensated respiratory acidosis'], correct: 0, rationale: 'The pH is low (acidosis), the PaCO2 is high (respiratory), and the HCO3 is normal, indicating an uncompensated respiratory acidosis.' },
+        { topic: 'abg', q: 'What does a PaO2/FiO2 (P/F) ratio below 200 strongly indicate?', options: ['Mild COPD', 'Normal lung function', 'Severe intrapulmonary shunting and ARDS', 'Respiratory alkalosis'], correct: 2, rationale: 'A P/F ratio below 200 mm Hg indicates a large intrapulmonary shunt (approximately 20%) and is strongly diagnostic of severe ARDS.' },
+        { topic: 'abg', q: 'In metabolic alkalosis resulting from severe vomiting, how does the respiratory system initially attempt to compensate?', options: ['Hyperventilating to blow off CO2', 'Hypoventilating to retain CO2', 'Increasing tidal volume', 'Generating auto-PEEP'], correct: 1, rationale: 'In metabolic alkalosis, the respiratory system compensates by hypoventilating (decreasing rate/depth) to retain CO2, which acts as an acid to lower the pH toward normal limits.' },
+
+        // Respiratory Assessment
+        { topic: 'assessment', q: 'During chest percussion, what does a "hyperresonant" sound typically indicate?', options: ['Normal healthy lung tissue', 'Fluid accumulation or pleural effusion', 'Increased amount of air, such as in pneumothorax or emphysema', 'Solid tumor mass'], correct: 2, rationale: 'Hyperresonance indicates trapped air or increased air space, frequently observed in conditions like emphysema, asthma, or a pneumothorax.' },
+        { topic: 'assessment', q: 'What finding is described as a crackling sensation under the fingertips indicating air in the subcutaneous tissues?', options: ['Tactile fremitus', 'Pleural friction rub', 'Subcutaneous crepitus', 'Rhonchi'], correct: 2, rationale: 'Subcutaneous crepitus (subcutaneous emphysema) feels like crunching "Rice Krispies" under the skin, indicating air has escaped from the lungs/airways into tissue layers.' },
+        { topic: 'assessment', q: 'Which adventitious breath sound is characterized by discontinuous, bubbling sounds caused by air moving through fluid?', options: ['Wheezes', 'Crackles (crepitations)', 'Stridor', 'Rhonchi'], correct: 1, rationale: 'Crackles are discontinuous, explosive sounds caused by air bubbling through fluid (e.g., pulmonary edema) or alveoli popping open.' },
+
+        // Ventilatory Function
+        { topic: 'ventilatory', q: 'To prevent volutrauma in a patient with ARDS, which tidal volume setting is characteristic of a lung-protective strategy?', options: ['10 to 12 mL/kg', '8 to 10 mL/kg', '4 to 6 mL/kg', '1 to 3 mL/kg'], correct: 2, rationale: 'The "low stretch" or lung-protective protocol utilizes smaller tidal volumes (4-6 mL/kg of ideal body weight) to prevent alveolar overdistention and volutrauma.' },
+        { topic: 'ventilatory', q: 'What is the primary rationale for utilizing "permissive hypercapnia" in the management of severe ARDS?', options: ['To stimulate the respiratory drive for weaning', 'To prevent volutrauma by using lower tidal volumes, accepting higher CO2 levels', 'To actively dilate the pulmonary vasculature', 'To decrease the risk of oxygen toxicity'], correct: 1, rationale: 'Permissive hypercapnia allows CO2 to rise so that lower, safer tidal volumes can be used, protecting the fragile lungs from high-pressure barotrauma and shearing injuries.' },
+        { topic: 'ventilatory', q: 'When evaluating a patient's readiness to wean from mechanical ventilation, what does a Negative Inspiratory Force (NIF) of -15 cm H2O indicate?', options: ['Excellent inspiratory muscle strength, ready to extubate', 'Normal airway resistance', 'Weak respiratory muscles requiring continued mechanical ventilation', 'Excessive auto-PEEP'], correct: 2, rationale: 'A normal NIF is -75 to -100 cm H2O. A value less negative than -20 or -25 cm H2O indicates profound muscle weakness and failure to sustain spontaneous ventilation.' },
+
+        // Hemodynamics
+        { topic: 'hemodynamics', q: 'Which hemodynamic parameter represents the volume of blood in the ventricles at the end of diastole?', options: ['Afterload', 'Preload', 'Cardiac Output', 'Systemic Vascular Resistance'], correct: 1, rationale: 'Preload is the filling volume or pressure in the ventricle at the end of diastole, representing the stretch on myocardial fibers before contraction.' },
+        { topic: 'hemodynamics', q: 'What is the normal range for central venous pressure (CVP)?', options: ['2 to 6 mm Hg', '8 to 15 mm Hg', '15 to 25 mm Hg', '70 to 105 mm Hg'], correct: 0, rationale: 'Normal CVP (or Right Atrial Pressure) is 2-6 mm Hg, used to evaluate right ventricular preload and guide fluid resuscitation.' },
+        { topic: 'hemodynamics', q: 'A critically ill patient has a Mixed Venous Oxygen Saturation (SvO2) of 55%. What physiological state is a likely cause?', options: ['Decreased oxygen delivery or increased tissue oxygen consumption', 'Sepsis with microcirculatory shunting', 'Normal physiological state', 'Oxygen toxicity'], correct: 0, rationale: 'Normal SvO2 is 60-80%. A drop below 60% indicates the tissues are extracting more oxygen due to either decreased delivery (e.g., low cardiac output in cardiogenic shock) or high demand (e.g., shivering, fever).' }
     ];
 
     let currentQuestions = [];
@@ -254,7 +312,7 @@
     let score = 0;
     let timerInterval;
     let secondsElapsed = 0;
-    let currentModule = '';
+    let currentModuleTitle = '';
 
     // Shuffler Utility
     function shuffle(array) {
@@ -267,18 +325,15 @@
         return array;
     }
 
-    function startQuiz(topic) {
-        currentModule = topic;
+    function startQuiz(topicKey, title) {
+        currentModuleTitle = title;
         document.getElementById('dashboard').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'block';
         
-        if (topic === 'all') {
-            currentQuestions = [...allQuestions];
-        } else {
-            currentQuestions = allQuestions.filter(q => q.topic === topic);
-        }
-        
+        // Filter and Shuffle Questions
+        currentQuestions = allQuestions.filter(q => q.topic === topicKey);
         currentQuestions = shuffle(currentQuestions);
+        
         currentIndex = 0;
         score = 0;
         secondsElapsed = 0;
@@ -294,7 +349,7 @@
             secondsElapsed++;
             const m = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
             const s = String(secondsElapsed % 60).padStart(2, '0');
-            document.getElementById('timer-display').innerText = `Time: ${m}:${s}`;
+            document.getElementById('timer-display').innerText = `${m}:${s}`;
         }, 1000);
     }
 
@@ -303,7 +358,7 @@
         document.getElementById('rationale-box').style.display = 'none';
         
         const q = currentQuestions[currentIndex];
-        document.getElementById('progress-text').innerText = `Question ${currentIndex + 1} of ${currentQuestions.length} | Category: ${q.category}`;
+        document.getElementById('progress-text').innerText = `${currentModuleTitle} - Question ${currentIndex + 1} of ${currentQuestions.length}`;
         document.getElementById('question-text').innerText = q.q;
         
         const optsContainer = document.getElementById('options-container');
@@ -332,15 +387,21 @@
             document.getElementById('score-display').innerText = `Score: ${score}`;
         } else {
             btnElement.classList.add('incorrect');
-            buttons[q.correct].classList.add('correct'); // Highlight actual correct answer
+            buttons[q.correct].classList.add('correct'); // Reveal correct
         }
         
         // Show rationale
         document.getElementById('rationale-text').innerText = q.rationale;
         document.getElementById('rationale-box').style.display = 'block';
         
-        // Show next button
-        document.getElementById('next-btn').style.display = 'inline-block';
+        // Setup next button text
+        const nextBtn = document.getElementById('next-btn');
+        if (currentIndex === currentQuestions.length - 1) {
+            nextBtn.innerText = 'Finish Quiz';
+        } else {
+            nextBtn.innerHTML = 'Next Question &rarr;';
+        }
+        nextBtn.style.display = 'inline-block';
     }
 
     function nextQuestion() {
@@ -348,26 +409,40 @@
         if (currentIndex < currentQuestions.length) {
             loadQuestion();
         } else {
-            endQuiz();
+            endQuiz(false);
         }
     }
 
-    function endQuiz() {
+    function endQuiz(isQuit) {
         clearInterval(timerInterval);
         const m = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
         const s = String(secondsElapsed % 60).padStart(2, '0');
         const finalTime = `${m}:${s}`;
         
-        // Save to history
-        const tbody = document.getElementById('history-body');
-        const row = document.createElement('tr');
-        const dateStr = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString();
-        row.innerHTML = `<td>${currentModule.toUpperCase()}</td><td>${score} / ${currentQuestions.length}</td><td>${finalTime}</td><td>${dateStr}</td>`;
-        tbody.prepend(row);
+        // Only log to history if not manually quit on first question without answering
+        if (!isQuit || currentIndex > 0 || score > 0) {
+            const tbody = document.getElementById('history-body');
+            const row = document.createElement('tr');
+            const dateStr = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            let statusText = isQuit ? `<span style="color: var(--incorrect); font-size: 0.8rem;">(Quit Early)</span>` : '';
+            
+            row.innerHTML = `
+                <td><strong>${currentModuleTitle}</strong> ${statusText}</td>
+                <td>${score} / ${currentQuestions.length}</td>
+                <td>${finalTime}</td>
+                <td>${new Date().toLocaleDateString()} ${dateStr}</td>
+            `;
+            tbody.prepend(row);
+        }
         
         // Return to dashboard
         document.getElementById('quiz-area').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
+        
+        // Reset header displays
+        document.getElementById('timer-display').innerText = `00:00`;
+        document.getElementById('score-display').innerText = `Score: 0`;
     }
 </script>
 </body>
