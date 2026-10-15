@@ -282,30 +282,780 @@
     // Quiz Database
     const allQuestions = [
         // ECG
-        { topic: 'ecg', q: 'What does a prolonged PR interval (> 0.20 seconds) typically indicate?', options: ['Delayed conduction through the AV node', 'Acute transmural myocardial infarction', 'Ventricular repolarization abnormality', 'Bundle branch block'], correct: 0, rationale: 'A prolonged PR interval (normal is 0.12-0.20s) indicates delayed conduction through the AV node, commonly seen in first-degree AV block.' },
-        { topic: 'ecg', q: 'Which ECG finding is most indicative of an acute transmural myocardial infarction?', options: ['ST segment depression', 'ST segment elevation', 'Inverted P waves', 'Prolonged QT interval'], correct: 1, rationale: 'ST segment elevation typically indicates an acute transmural myocardial infarction, whereas ST depression often indicates myocardial ischemia.' },
-        { topic: 'ecg', q: 'What is the normal duration of the QRS complex?', options: ['0.12 to 0.20 seconds', 'Less than 0.12 seconds', '0.20 to 0.40 seconds', 'Greater than 0.20 seconds'], correct: 1, rationale: 'A normal QRS complex should not exceed 3 small squares, meaning it should be less than 0.12 seconds. Wider complexes indicate abnormal ventricular conduction.' },
+       // ECG Interpretation & Advanced Dysrhythmias
+        { 
+            topic: 'ecg', 
+            q: "A patient presents with a regular, wide QRS tachycardia at a rate of 160 beats per minute. The nurse is analyzing the 12-lead ECG to differentiate between ventricular tachycardia (VT) and supraventricular tachycardia with aberrant intraventricular conduction. Which specific electrocardiographic finding provides the strongest evidence in favor of ventricular tachycardia?", 
+            options: [
+                "The presence of a normal QRS axis.", 
+                "The presence of a triphasic rsR' complex in lead V1.", 
+                "The presence of a narrow R wave in lead V1.", 
+                "The presence of fusion or capture beats."
+            ], 
+            correct: 3, 
+            rationale: "Capture beats (a narrow/normal QRS appearing amidst wide QRS complexes) and fusion beats indicate atrioventricular dissociation, proving the atria and ventricles are under the control of separate pacemakers. This is strong, definitive evidence of VT. Conversely, a normal QRS axis generally favors aberrancy." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "While determining the QRS axis using the hexaxial reference system, the critical care nurse notes that the QRS complex is predominantly negative in lead I and predominantly positive in lead aVF. Which specific conduction abnormality is most directly associated with this quadrant?", 
+            options: [
+                "Inferior myocardial infarction.", 
+                "Left posterior fascicular block.", 
+                "Left ventricular hypertrophy.", 
+                "Left anterior fascicular block."
+            ], 
+            correct: 1, 
+            rationale: "A QRS complex that is negative in lead I and positive in lead aVF indicates Right Axis Deviation (RAD). Left posterior fascicular block causes the depolarization vector to shift down and to the right, presenting as RAD. In contrast, a left anterior fascicular block results in Left Axis Deviation (LAD)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient is admitted with an acute inferior wall myocardial infarction demonstrating ST-segment elevation in leads II, III, and aVF. The nurse analyzes the precordial leads and notes discordant ST-segment elevation in lead V1 combined with ST-segment depression in lead V2. Based on these findings, which assessment action is the immediate priority?", 
+            options: [
+                "Administer intravenous nitroglycerin.", 
+                "Obtain right-sided chest leads V3R through V6R.", 
+                "Obtain posterior chest leads V7 through V9.", 
+                "Prepare the patient for immediate cardioversion."
+            ], 
+            correct: 1, 
+            rationale: "Discordant ST elevation in V1 and ST depression in V2 in the presence of an acute inferior MI is a classic warning sign of a right ventricular (RV) infarction. The immediate priority is to obtain right-sided chest leads to confirm RV involvement, as this drastically alters medical management (e.g., preload-reducing agents like nitroglycerin are strictly contraindicated in RV MI)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient's telemetry strip reveals an atrial rate of 94 beats/minute and a ventricular rate of 38 beats/minute. The nurse notes that the P-P intervals are regular and the R-R intervals are regular. However, the P waves appear randomly throughout the QRS complexes without any consistent PR intervals. Which dysrhythmia does this represent?", 
+            options: [
+                "High-grade second-degree atrioventricular block.", 
+                "Complete third-degree atrioventricular block.", 
+                "Atrioventricular nodal reentrant tachycardia.", 
+                "Type II second-degree atrioventricular block."
+            ], 
+            correct: 1, 
+            rationale: "The presence of regular P waves and regular QRS complexes that are completely dissociated from one another (no true PR intervals) is the hallmark of Complete (Third-Degree) Heart Block. The atria and ventricles are firing independently." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The critical care nurse is initiating continuous ST-segment monitoring for a patient admitted with acute coronary syndrome to detect silent ischemia. Which programming standard is essential for ensuring accurate ST-segment analysis?", 
+            options: [
+                "Utilize lead V1 exclusively to monitor ST segment changes.", 
+                "Establish the baseline ST level with the patient standing.", 
+                "Set the ST alarm parameters at 5 mm above the baseline.", 
+                "Set the measurement point 0.06 seconds after the J point."
+            ], 
+            correct: 3, 
+            rationale: "To ensure the monitor accurately reads true ischemic ST-segment deviations (rather than early repolarization or artifact), the measurement point must be calibrated to read exactly 0.06 seconds (60 milliseconds) after the J point." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient with severe heart failure and a prolonged intraventricular conduction delay (Left Bundle Branch Block) receives a biventricular pacemaker. The nurse understands that this specific therapy is designed to improve left ventricular stroke volume by reducing or eliminating which pathological mechanism?", 
+            options: [
+                "Premature ventricular contractions.", 
+                "Atrioventricular nodal conduction delay.", 
+                "Early papillary muscle depolarization.", 
+                "Paradoxical septal wall motion."
+            ], 
+            correct: 3, 
+            rationale: "In a Left Bundle Branch Block (LBBB), the ventricles depolarize asynchronously, causing the interventricular septum to bulge paradoxically during systole, which significantly reduces left ventricular stroke volume. A biventricular pacemaker (Cardiac Resynchronization Therapy) eliminates this paradoxical septal wall motion by pacing both ventricles simultaneously, restoring efficient forward flow." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient's cardiac rhythm demonstrates a sudden dropped QRS complex. The PR interval preceding the pause is constant, and the QRS complexes are wide. The healthcare provider orders an intravenous bolus of atropine. Why must the critical care nurse question this order?", 
+            options: [
+                "It may immediately precipitate torsades de pointes.", 
+                "It may cause a sudden prolongation of the PR intervals.", 
+                "It may convert the underlying rhythm to atrial fibrillation.", 
+                "It may increase the atrial rate and worsen conduction failure."
+            ], 
+            correct: 3, 
+            rationale: "The rhythm described (constant PR intervals with dropped, wide QRS complexes) is Second-Degree AV Block Type II (Mobitz II). This block occurs below the AV node (infranodal). Atropine increases the sinus node firing rate; hitting a diseased bundle branch system with a faster atrial rate can paradoxically worsen the block and result in a slower ventricular response." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient experiences a syncopal episode, and the monitor reveals a polymorphic ventricular tachycardia where the wide QRS complexes appear to twist around the isoelectric baseline. A review of the prior 12-lead ECG reveals a QTc interval of 0.62 seconds. Which pharmacological intervention is strictly contraindicated for this specific arrhythmia?", 
+            options: [
+                "Discontinuing the offending medications.", 
+                "Administering intravenous amiodarone.", 
+                "Initiating temporary cardiac pacing.", 
+                "Administering intravenous magnesium."
+            ], 
+            correct: 1, 
+            rationale: "The patient is experiencing Torsades de Pointes, triggered by a dangerously prolonged QT interval (0.62 seconds). Amiodarone is an antiarrhythmic that inherently prolongs the QT interval; administering it would exacerbate the underlying cause and worsen the arrhythmia. Intravenous magnesium is the correct pharmacological treatment." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The critical care nurse is analyzing a 12-lead ECG for a patient presenting with new-onset heart failure symptoms and suspects a left bundle branch block (LBBB). Which definitive precordial lead findings confirm asynchronous ventricular depolarization consistent with LBBB?", 
+            options: [
+                "A wide triphasic rsR' complex in lead V1 and a wide S wave in lead V6.", 
+                "A monophasic R wave in lead V1 and a monophasic QS complex in lead V6.", 
+                "A narrow R wave in lead V1 and a deep Q wave in lead V6.", 
+                "A wide QS complex in lead V1 and a wide R wave in lead V6."
+            ], 
+            correct: 3, 
+            rationale: "A Left Bundle Branch Block delays depolarization of the left ventricle. On a 12-lead ECG, this manifests as a wide, deeply negative QS or rS complex in the right precordial leads (V1) and a wide, predominantly positive monophasic R wave in the left precordial leads (V6)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient arrives in the emergency department complaining of atypical back pain. The standard 12-lead ECG lacks indicative ST-segment elevation in the anterior, inferior, or lateral leads. However, the nurse identifies reciprocal changes that strongly suggest an acute posterior wall myocardial infarction. Which specific findings represent these reciprocal changes?", 
+            options: [
+                "ST-segment depression and inverted T waves in leads II, III, and aVF.", 
+                "ST-segment depression and tall R waves in leads V1 through V3.", 
+                "ST-segment elevation and discordant T waves in leads V4 through V6.", 
+                "ST-segment elevation and pathological Q waves in leads I and aVL."
+            ], 
+            correct: 1, 
+            rationale: "Because standard 12-lead ECGs do not have electrodes directly over the posterior wall, an acute posterior MI is identified by looking for its mirror image (reciprocal changes) in the anterior leads (V1-V3). These classic reciprocal changes are ST-segment depression, unusually tall and broad R waves (the mirror image of pathological Q waves), and upright T waves." 
+        },
+
+        // Cardiac Pharmacology & Resuscitation Management
+        { 
+            topic: 'ecg', 
+            q: "A patient with supraventricular tachycardia (SVT) is prescribed IV Adenosine. Prior to administration, the nurse notes the patient drank two large cups of caffeinated coffee. How does methylxanthine (caffeine or theophylline) ingestion impact Adenosine therapy?", 
+            options: [
+                "It enhances Adenosine's effects, requiring a lower initial dose.", 
+                "It antagonizes Adenosine's effects, requiring larger doses to achieve rhythm conversion.", 
+                "It increases the risk of prolonged asystole beyond 30 seconds.", 
+                "It causes severe rebound hypertension upon conversion."
+            ], 
+            correct: 1, 
+            rationale: "Adenosine blocks AV nodal conduction to terminate reentry SVT. However, its action is competitive and antagonized by methylxanthines (such as caffeine and theophylline). Patients who have consumed caffeine may require higher doses than the standard 6 mg or 12 mg boluses to convert their rhythm." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient with recurrent, hemodynamically unstable Ventricular Tachycardia (VT) is receiving a continuous IV Amiodarone infusion. What is the primary rationale for administering continuous IV Amiodarone via a central venous catheter rather than a peripheral line?", 
+            options: [
+                "Peripheral veins rapidly degrade the active Amiodarone molecule before it reaches the heart.", 
+                "Peripheral IV administration frequently causes thrombophlebitis and local vessel irritation.", 
+                "Central venous administration completely prevents Amiodarone-induced hypotension.", 
+                "Peripheral IV administration doubles the risk of acute thyroid toxicity."
+            ], 
+            correct: 1, 
+            rationale: "Continuous Amiodarone infusions should ideally be administered through a large central vein or central venous catheter because peripheral IV administration causes significant local venous irritation and thrombophlebitis. Continuous cardiac monitoring is essential to observe for bradycardia, QT prolongation, and hypotension." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient presents with Second-Degree AV Block Type II (Mobitz II), a heart rate of 34 bpm, and a BP of 78/42 mmHg. Why is Atropine ineffective and NOT recommended as the primary treatment for this patient?", 
+            options: [
+                "Atropine stimulates alpha-1 adrenergic receptors, severely raising systemic vascular resistance.", 
+                "Atropine acts at the SA and AV node level and is ineffective for infranodal conduction block below the AV node.", 
+                "Atropine rapidly precipitates Ventricular Fibrillation in Mobitz II blocks.", 
+                "Atropine binds exclusively to SA node receptors and has no effect on AV conduction."
+            ], 
+            correct: 1, 
+            rationale: "Atropine increases heart rate by blocking vagal nerve stimulation at the SA and AV nodes. In Mobitz II and Complete (Third-Degree) Heart Block, the block occurs below the AV node (in the Bundle of His or bundle branches). Atropine is generally ineffective for these infranodal blocks. The nurse must immediately prepare for Transcutaneous Pacing (TCP) or continuous infusions of Dopamine or Epinephrine." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The nurse initiates Transcutaneous Pacing (TCP) for a client in severe symptomatic bradycardia. The monitor displays a pacing spike followed by a wide QRS complex with every beat, but the nurse cannot palpate a femoral or carotid pulse. What action should the nurse take next?", 
+            options: [
+                "Document that successful capture is established and continue routine care.", 
+                "Increase the current output (mA) until a corresponding mechanical pulse is palpated.", 
+                "Immediately decrease the pacer rate setting by 20 beats per minute.", 
+                "Discontinue pacing and administer an IV Adenosine 6 mg rapid push."
+            ], 
+            correct: 1, 
+            rationale: "Electrical capture is recognized on the ECG monitor by a pacer spike followed immediately by a wide QRS complex. However, pacing is only clinically effective when mechanical capture is achieved—meaning the electrical stimulus produces an actual cardiac contraction and palpable pulse. If a pulse is absent despite electrical spikes, the nurse must increase the voltage/current output (mA) until mechanical capture (a matching physical pulse) is confirmed." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient in distributive/septic shock is receiving a continuous infusion of Norepinephrine (Levophed). The nurse notes swelling, coldness, and blanching at the peripheral IV insertion site. Which antidote should the nurse anticipate administering locally to prevent tissue necrosis?", 
+            options: [
+                "Atropine sulfate", 
+                "Phentolamine (Regitine)", 
+                "Calcium chloride", 
+                "Sodium bicarbonate"
+            ], 
+            correct: 1, 
+            rationale: "Norepinephrine is a potent alpha-adrenergic agonist that causes intense peripheral arterial vasoconstriction. If extravasation occurs into subcutaneous tissue, the extreme localized vasoconstriction causes tissue ischemia, sloughing, and necrosis. Phentolamine (an alpha-blocker) is injected locally into the affected tissue to reverse the vasoconstriction and restore perfusion." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client in cardiogenic shock is placed on a continuous Dopamine infusion titrated up to 18 mcg/kg/min. What primary receptor stimulation and hemodynamic effect should the nurse monitor for at this dosage?", 
+            options: [
+                "Dopaminergic receptor stimulation causing selective renal vessel dilation.", 
+                "Alpha-1 receptor stimulation causing systemic vasoconstriction and increased Systemic Vascular Resistance (SVR).", 
+                "Beta-2 receptor stimulation causing widespread arterial vasodilation and hypotension.", 
+                "Muscarinic receptor blockade leading to central nervous system depression."
+            ], 
+            correct: 1, 
+            rationale: "Dopamine has dose-dependent effects: Low dose (<5 mcg/kg/min): Stimulates dopaminergic receptors to improve renal blood flow. Moderate dose (5–10 mcg/kg/min): Stimulates Beta-1 receptors to increase myocardial contractility and heart rate. High dose (>10–20 mcg/kg/min): Stimulates Alpha-1 receptors, producing intense systemic vasoconstriction, raising blood pressure and SVR." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A conscious client with unstable Supraventricular Tachycardia (SVT) and a BP of 82/46 mmHg is being prepared for emergency synchronized cardioversion. Which nursing action is essential immediately before delivering the shock?", 
+            options: [
+                "Disengage the 'sync' button to deliver an unsynchronized discharge.", 
+                "Remove supplemental oxygen delivery devices from the immediate bed area to avoid fire hazards.", 
+                "Administer a 300 mg IV bolus of Amiodarone rapidly over 5 seconds.", 
+                "Hyperventilate the patient with a bag-valve-mask at 30 breaths per minute."
+            ], 
+            correct: 1, 
+            rationale: "Supplemental oxygen must be turned off or moved away from the chest area during electrical cardioversion/defibrillation to eliminate the risk of combustion and fire. The nurse must also verify that the defibrillator is in 'synchronous' mode (ensuring electrical delivery occurs on the R wave) and sedate the conscious patient if time permits." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A renal failure patient exhibits tall, peaked T waves and QRS widening due to a serum potassium level of 6.8 mEq/L. Which statement explains the immediate rationale for administering IV Calcium Chloride or Calcium Gluconate?", 
+            options: [
+                "It rapidly drives potassium ions from the extracellular fluid into the cells.", 
+                "It neutralizes blood plasma hydrogen ions to correct systemic metabolic acidosis.", 
+                "It directly stabilizes the myocardial cell membrane to prevent lethal dysrhythmias.", 
+                "It inhibits cardiac muscle depolarization to slow down rapid ventricular response."
+            ], 
+            correct: 2, 
+            rationale: "Intravenous Calcium (chloride or gluconate) does not lower serum potassium levels. Instead, it acts as a cell membrane stabilizer by raising the action potential threshold, preventing severe hyperkalemia-induced lethal dysrhythmias (like VF or asystole). Medications like insulin with dextrose or sodium bicarbonate are used to shift potassium into cells." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A patient with an acute myocardial infarction is prescribed a continuous IV Nitroglycerin infusion for severe ischemic chest pain. Which special administration rule must the nurse follow when preparing this IV infusion?", 
+            options: [
+                "Protect the solution from room light using a dark opaque plastic bag.", 
+                "Administer the solution in a glass bottle using non-polyvinyl chloride (non-PVC) tubing.", 
+                "Administer the medication via rapid IV push every 3 to 5 minutes.", 
+                "Mix the medication exclusively with 8.4% Sodium Bicarbonate solutions."
+            ], 
+            correct: 1, 
+            rationale: "Nitroglycerin binds to standard plastic polyvinyl chloride (PVC) IV bags and tubing, which drastically reduces the actual dose of medication delivered to the patient. Continuous IV Nitroglycerin infusions must be prepared in glass bottles using non-PVC administration sets." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client with symptomatic sinus bradycardia (HR 38 bpm, BP 74/42 mmHg, severe dizziness) remains hypotensive and symptomatic after receiving a maximum total dose of 3 mg IV Atropine. What is the correct next step according to emergency cardiac care algorithms?", 
+            options: [
+                "Administer IV Adenosine 12 mg rapid push over 1 to 3 seconds.", 
+                "Initiate Transcutaneous Pacing (TCP) or start a continuous Dopamine or Epinephrine infusion.", 
+                "Administer an IV Amiodarone loading bolus of 300 mg over 10 seconds.", 
+                "Perform immediate unsynchronized defibrillation at 200 Joules."
+            ], 
+            correct: 1, 
+            rationale: "When symptomatic bradycardia fails to respond to the maximum cumulative dose of Atropine (3 mg total), the nurse must immediately move to second-line interventions. These include initiating Transcutaneous Pacing (TCP) or administering continuous vasoactive chronotropic infusions, such as Dopamine (2–10 mcg/kg/min) or Epinephrine (2–10 mcg/min)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A 45-year-old patient undergoing a pre-operative evaluation shows this ECG rhythm. The patient is asymptomatic with a BP of 120/78 mmHg.", 
+            image: "", 
+            options: [
+                "Administer Atropine 0.5 mg IV push.", 
+                "Document the findings as normal and continue routine care.", 
+                "Prepare the patient for immediate synchronized cardioversion.", 
+                "Obtain a stat serum potassium level."
+            ], 
+            correct: 1, 
+            rationale: "Normal Sinus Rhythm (rate 60-100 bpm, regular PR interval 0.12-0.20s, normal QRS <0.12s) requires no clinical intervention." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client post-MI develops this rhythm with a HR of 42 bpm, BP 82/50 mmHg, and dizziness. Which medication should the nurse prepare to administer?", 
+            image: "", 
+            options: [
+                "Amiodarone 300 mg IV push", 
+                "Adenosine 6 mg rapid IV push", 
+                "Atropine 0.5 mg IV push", 
+                "Metoprolol 5 mg IV push"
+            ], 
+            correct: 2, 
+            rationale: "Symptomatic sinus bradycardia (HR <60 bpm with signs of poor perfusion/hypotension) is treated with Atropine 0.5 mg IV." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A postoperative patient has a heart rate of 135 bpm, temp 38.9°C (102°F), and surgical pain rated 8/10. What is the primary nursing goal for this rhythm?", 
+            image: "", 
+            options: [
+                "Perform immediate unsynchronized defibrillation.", 
+                "Treat the underlying cause (fever and pain).", 
+                "Administer IV diltiazem bolus.", 
+                "Place an emergency temporary transvenous pacemaker."
+            ], 
+            correct: 1, 
+            rationale: "Sinus tachycardia is a physiological response to underlying stimuli (pain, fever, hypoxia, dehydration). Management focuses on treating the underlying cause." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A telemetry patient exhibits a sudden loss of P-QRS-T complexes lasting 2.2 seconds before sinus node recovery. The patient reports lightheadedness.", 
+            image: "", 
+            options: [
+                "First-degree AV block", 
+                "Sinus Arrest / Pause", 
+                "Third-degree complete heart block", 
+                "Ventricular Fibrillation"
+            ], 
+            correct: 1, 
+            rationale: "Sinus arrest occurs when the SA node fails to initiate an impulse, creating a pause without P-QRS-T waveforms. If symptomatic, it may require intervention." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "An elderly patient presents with an irregularly irregular narrow-complex rhythm with no visible P waves and a ventricular rate of 130 bpm.", 
+            image: "", 
+            options: [
+                "Epinephrine and Atropine", 
+                "Rate control agents (e.g., Beta-blockers/Diltiazem) and Anticoagulants", 
+                "Adenosine and Isoproterenol", 
+                "Sodium bicarbonate and Calcium gluconate"
+            ], 
+            correct: 1, 
+            rationale: "Atrial fibrillation requires ventricular rate control (beta-blockers, diltiazem, digoxin) and thromboembolic risk assessment." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The nurse notes a classic 'sawtooth' baseline pattern preceding regular QRS complexes with a 4:1 atrial-to-ventricular ratio. What is the diagnosis?", 
+            image: "", 
+            options: [
+                "Atrial Flutter", 
+                "Ventricular Tachycardia", 
+                "Second-degree Mobitz Type I", 
+                "Normal Sinus Rhythm"
+            ], 
+            correct: 0, 
+            rationale: "Atrial Flutter is characterized by regular saw-toothed flutter waves (F-waves) occurring at 250-400 bpm with varying degrees of block." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A 28-year-old reports sudden onset palpitations. The ECG displays a regular narrow-complex tachycardia at 190 bpm with P waves buried in the QRS.", 
+            image: "", 
+            options: [
+                "Adenosine 6 mg rapid IV push followed by NS flush", 
+                "Transcutaneous pacing at 80 mA", 
+                "Atropine 1 mg IV push", 
+                "Defibrillation at 200 Joules"
+            ], 
+            correct: 0, 
+            rationale: "Stable SVT is initially managed with vagal maneuvers, followed by Adenosine 6 mg rapid IV bolus (followed by 12 mg if unsuccessful)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "Analysis of a strip reveals a regular rhythm, HR 68 bpm, normal QRS, and a constant PR interval of 0.28 seconds. How should the nurse interpret this?", 
+            image: "", 
+            options: [
+                "First-degree AV block; usually benign, monitor for progression.", 
+                "Second-degree Mobitz II; prepare for emergency pacing.", 
+                "Complete heart block; administer IV atropine immediately.", 
+                "Normal sinus rhythm with bundle branch block."
+            ], 
+            correct: 0, 
+            rationale: "First-degree AV block is defined by a constant PR interval >0.20 seconds. It is usually asymptomatic and requires observation." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The rhythm shows progressive prolongation of the PR interval over consecutive beats until a P wave appears without a QRS complex ('dropped beat').", 
+            image: "", 
+            options: [
+                "First-degree AV block", 
+                "Second-degree AV block Type I (Mobitz I / Wenckebach)", 
+                "Second-degree AV block Type II (Mobitz II)", 
+                "Third-degree AV block"
+            ], 
+            correct: 1, 
+            rationale: "Mobitz I (Wenckebach) features progressive PR lengthening until a QRS is dropped. 'Longer, longer, longer, drop - then you have a Wenckebach'." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client with an anterior MI exhibits constant PR intervals on conducted beats, but every second P wave fails to produce a QRS complex. What is the primary concern?", 
+            image: "", 
+            options: [
+                "It is benign and resolves spontaneously without therapy.", 
+                "It frequently progresses to Complete (Third-Degree) Heart Block or Asystole.", 
+                "It responds rapidly to high-dose IV beta-blockers.", 
+                "It represents atrial muscle fibrillation."
+            ], 
+            correct: 1, 
+            rationale: "Mobitz II occurs below the AV node (in His/bundle branches) with constant PR intervals and intermittent non-conducted P waves. It has a high risk of progressing." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The strip shows regular P-P intervals (rate 80 bpm) and regular R-R intervals (rate 37 bpm), but P waves have no relationship to QRS complexes.", 
+            image: "", 
+            options: [
+                "Administer IV diltiazem", 
+                "Initiate Transcutaneous Pacing (TCP)", 
+                "Perform synchronized cardioversion at 50 Joules", 
+                "Administer sublingual nitroglycerin"
+            ], 
+            correct: 1, 
+            rationale: "Complete AV block exhibits total AV dissociation. Symptomatic patients require immediate transcutaneous pacing." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A cardiac monitor alarms showing a rapid, regular, wide-complex rhythm at 165 bpm. What is the VERY FIRST action the nurse should take?", 
+            image: "", 
+            options: [
+                "Immediate defibrillation at 200 J", 
+                "Assess the patient and check for a central pulse", 
+                "Administer IV Amiodarone 300 mg", 
+                "Begin chest compressions immediately"
+            ], 
+            correct: 1, 
+            rationale: "Treatment for VT depends entirely on pulse/stability! Always assess the patient and check for a pulse first." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client with hypomagnesemia displays a wide QRS tachycardia where the amplitude twists around the isoelectric line. What medication is indicated?", 
+            image: "", 
+            options: [
+                "IV Magnesium Sulfate", 
+                "IV Adenosine", 
+                "IV Metoprolol", 
+                "Oral Digoxin"
+            ], 
+            correct: 0, 
+            rationale: "Torsades de Pointes is a polymorphic VT associated with prolonged QT interval. IV Magnesium Sulfate is the drug of choice." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client suddenly collapses. Telemetry shows chaotic, irregular fibrillatory undulations with no identifiable QRS complexes or pulse. What is the immediate treatment?", 
+            image: "", 
+            options: [
+                "High-quality CPR and Immediate Defibrillation", 
+                "Synchronized Cardioversion at 50 J", 
+                "Atropine 1 mg IV push", 
+                "Endotracheal intubation before any shocks"
+            ], 
+            correct: 0, 
+            rationale: "VFib is a lethal cardiac arrest rhythm (no cardiac output/pulse). Treatment requires immediate CPR and unsynchronized defibrillation." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The monitor shows low-amplitude, fine chaotic baseline activity. No pulse is present. How does fine VFib differ from Asystole in management?", 
+            image: "", 
+            options: [
+                "Fine VFib is shocked; Asystole is NOT shocked (requires CPR and Epinephrine).", 
+                "Asystole requires synchronized cardioversion; Fine VFib requires atropine.", 
+                "Neither rhythm requires CPR.", 
+                "Fine VFib is treated only with IV pacing."
+            ], 
+            correct: 0, 
+            rationale: "VFib (coarse or fine) is a shockable rhythm. Asystole and PEA are non-shockable rhythms requiring CPR and Epinephrine." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "Every second complex on the telemetry monitor is a premature, wide, bizarre QRS complex followed by a compensatory pause. What pattern is this?", 
+            image: "", 
+            options: [
+                "Ventricular Trigeminy", 
+                "Ventricular Bigeminy", 
+                "Couplet PVCs", 
+                "Atrial Fibrillation"
+            ], 
+            correct: 1, 
+            rationale: "Ventricular Bigeminy occurs when every second beat is a PVC. (Trigeminy = every 3rd beat; Couplet = two PVCs in a row)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A 58-year-old presenting with severe retrosternal chest pain radiating to the left jaw displays ST-segment elevation >2mm in leads V2-V4. Within what timeframe should PCI occur?", 
+            image: "", 
+            options: [
+                "Within 90 minutes", 
+                "Within 180 minutes", 
+                "Within 24 hours", 
+                "Within 12 hours"
+            ], 
+            correct: 0, 
+            rationale: "For acute STEMI, primary Percutaneous Coronary Intervention (PCI) should open the culprit vessel within 90 minutes of hospital arrival." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "During an exercise stress test, the client's ECG shows 2mm ST-segment depression below baseline and T-wave inversion. What does ST depression signify?", 
+            image: "", 
+            options: [
+                "Acute transmural infarction", 
+                "Myocardial ischemia / Non-STEMI", 
+                "Hyperkalemia", 
+                "Pericarditis"
+            ], 
+            correct: 1, 
+            rationale: "ST-segment depression and T-wave inversion indicate myocardial ischemia or non-ST-elevation ACS, contrasting with ST elevation in infarction." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A renal failure patient with K+ 6.9 mEq/L displays tall, narrow, peaked ('tented') T waves and a widened QRS. Which medication is given IV to stabilize the myocardium?", 
+            image: "", 
+            options: [
+                "Calcium Gluconate 10% IV", 
+                "Furosemide IV", 
+                "Sodium Polystyrene Sulfonate (Kayexalate) PO", 
+                "Regular Insulin IV"
+            ], 
+            correct: 0, 
+            rationale: "IV Calcium Gluconate directly stabilizes the myocardial cell membrane to prevent lethal dysrhythmias in severe hyperkalemia." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The telemetry strip reveals a narrow vertical electrical spike immediately preceding each wide, bizarre QRS complex. What rhythm is depicted?", 
+            image: "", 
+            options: [
+                "Ventricular Paced Rhythm with 100% Capture", 
+                "Pacemaker failure to capture", 
+                "Atrial Paced Rhythm", 
+                "Artifact from muscle tremor"
+            ], 
+            correct: 0, 
+            rationale: "Successful ventricular capture by an artificial pacemaker is demonstrated by a pacing spike followed immediately by a QRS complex." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A 45-year-old patient undergoing a pre-operative evaluation shows this ECG rhythm. The patient is asymptomatic with a BP of 120/78 mmHg.", 
+            image: "", 
+            options: [
+                "Administer Atropine 0.5 mg IV push.", 
+                "Document the findings as normal and continue routine care.", 
+                "Prepare the patient for immediate synchronized cardioversion.", 
+                "Obtain a stat serum potassium level."
+            ], 
+            correct: 1, 
+            rationale: "Normal Sinus Rhythm (rate 60-100 bpm, regular PR interval 0.12-0.20s, normal QRS <0.12s) requires no clinical intervention." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client post-MI develops this rhythm with a HR of 42 bpm, BP 82/50 mmHg, and dizziness. Which medication should the nurse prepare to administer?", 
+            image: "", 
+            options: [
+                "Amiodarone 300 mg IV push", 
+                "Adenosine 6 mg rapid IV push", 
+                "Atropine 0.5 mg IV push", 
+                "Metoprolol 5 mg IV push"
+            ], 
+            correct: 2, 
+            rationale: "Symptomatic sinus bradycardia (HR <60 bpm with signs of poor perfusion/hypotension) is treated with Atropine 0.5 mg IV." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A postoperative patient has a heart rate of 135 bpm, temp 38.9°C (102°F), and surgical pain rated 8/10. What is the primary nursing goal for this rhythm?", 
+            image: "", 
+            options: [
+                "Perform immediate unsynchronized defibrillation.", 
+                "Treat the underlying cause (fever and pain).", 
+                "Administer IV diltiazem bolus.", 
+                "Place an emergency temporary transvenous pacemaker."
+            ], 
+            correct: 1, 
+            rationale: "Sinus tachycardia is a physiological response to underlying stimuli (pain, fever, hypoxia, dehydration). Management focuses on treating the underlying cause." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A telemetry patient exhibits a sudden loss of P-QRS-T complexes lasting 2.2 seconds before sinus node recovery. The patient reports lightheadedness.", 
+            image: "", 
+            options: [
+                "First-degree AV block", 
+                "Sinus Arrest / Pause", 
+                "Third-degree complete heart block", 
+                "Ventricular Fibrillation"
+            ], 
+            correct: 1, 
+            rationale: "Sinus arrest occurs when the SA node fails to initiate an impulse, creating a pause without P-QRS-T waveforms. If symptomatic, it may require intervention." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "An elderly patient presents with an irregularly irregular narrow-complex rhythm with no visible P waves and a ventricular rate of 130 bpm.", 
+            image: "", 
+            options: [
+                "Epinephrine and Atropine", 
+                "Rate control agents (e.g., Beta-blockers/Diltiazem) and Anticoagulants", 
+                "Adenosine and Isoproterenol", 
+                "Sodium bicarbonate and Calcium gluconate"
+            ], 
+            correct: 1, 
+            rationale: "Atrial fibrillation requires ventricular rate control (beta-blockers, diltiazem, digoxin) and thromboembolic risk assessment." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The nurse notes a classic 'sawtooth' baseline pattern preceding regular QRS complexes with a 4:1 atrial-to-ventricular ratio. What is the diagnosis?", 
+            image: "", 
+            options: [
+                "Atrial Flutter", 
+                "Ventricular Tachycardia", 
+                "Second-degree Mobitz Type I", 
+                "Normal Sinus Rhythm"
+            ], 
+            correct: 0, 
+            rationale: "Atrial Flutter is characterized by regular saw-toothed flutter waves (F-waves) occurring at 250-400 bpm with varying degrees of block." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A 28-year-old reports sudden onset palpitations. The ECG displays a regular narrow-complex tachycardia at 190 bpm with P waves buried in the QRS.", 
+            image: "", 
+            options: [
+                "Adenosine 6 mg rapid IV push followed by NS flush", 
+                "Transcutaneous pacing at 80 mA", 
+                "Atropine 1 mg IV push", 
+                "Defibrillation at 200 Joules"
+            ], 
+            correct: 0, 
+            rationale: "Stable SVT is initially managed with vagal maneuvers, followed by Adenosine 6 mg rapid IV bolus (followed by 12 mg if unsuccessful)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "Analysis of a strip reveals a regular rhythm, HR 68 bpm, normal QRS, and a constant PR interval of 0.28 seconds. How should the nurse interpret this?", 
+            image: "", 
+            options: [
+                "First-degree AV block; usually benign, monitor for progression.", 
+                "Second-degree Mobitz II; prepare for emergency pacing.", 
+                "Complete heart block; administer IV atropine immediately.", 
+                "Normal sinus rhythm with bundle branch block."
+            ], 
+            correct: 0, 
+            rationale: "First-degree AV block is defined by a constant PR interval >0.20 seconds. It is usually asymptomatic and requires observation." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The rhythm shows progressive prolongation of the PR interval over consecutive beats until a P wave appears without a QRS complex ('dropped beat').", 
+            image: "", 
+            options: [
+                "First-degree AV block", 
+                "Second-degree AV block Type I (Mobitz I / Wenckebach)", 
+                "Second-degree AV block Type II (Mobitz II)", 
+                "Third-degree AV block"
+            ], 
+            correct: 1, 
+            rationale: "Mobitz I (Wenckebach) features progressive PR lengthening until a QRS is dropped. 'Longer, longer, longer, drop - then you have a Wenckebach'." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client with an anterior MI exhibits constant PR intervals on conducted beats, but every second P wave fails to produce a QRS complex. What is the primary concern?", 
+            image: "", 
+            options: [
+                "It is benign and resolves spontaneously without therapy.", 
+                "It frequently progresses to Complete (Third-Degree) Heart Block or Asystole.", 
+                "It responds rapidly to high-dose IV beta-blockers.", 
+                "It represents atrial muscle fibrillation."
+            ], 
+            correct: 1, 
+            rationale: "Mobitz II occurs below the AV node (in His/bundle branches) with constant PR intervals and intermittent non-conducted P waves. It has a high risk of progressing." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The strip shows regular P-P intervals (rate 80 bpm) and regular R-R intervals (rate 37 bpm), but P waves have no relationship to QRS complexes.", 
+            image: "", 
+            options: [
+                "Administer IV diltiazem", 
+                "Initiate Transcutaneous Pacing (TCP)", 
+                "Perform synchronized cardioversion at 50 Joules", 
+                "Administer sublingual nitroglycerin"
+            ], 
+            correct: 1, 
+            rationale: "Complete AV block exhibits total AV dissociation. Symptomatic patients require immediate transcutaneous pacing." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A cardiac monitor alarms showing a rapid, regular, wide-complex rhythm at 165 bpm. What is the VERY FIRST action the nurse should take?", 
+            image: "", 
+            options: [
+                "Immediate defibrillation at 200 J", 
+                "Assess the patient and check for a central pulse", 
+                "Administer IV Amiodarone 300 mg", 
+                "Begin chest compressions immediately"
+            ], 
+            correct: 1, 
+            rationale: "Treatment for VT depends entirely on pulse/stability! Always assess the patient and check for a pulse first." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client with hypomagnesemia displays a wide QRS tachycardia where the amplitude twists around the isoelectric line. What medication is indicated?", 
+            image: "", 
+            options: [
+                "IV Magnesium Sulfate", 
+                "IV Adenosine", 
+                "IV Metoprolol", 
+                "Oral Digoxin"
+            ], 
+            correct: 0, 
+            rationale: "Torsades de Pointes is a polymorphic VT associated with prolonged QT interval. IV Magnesium Sulfate is the drug of choice." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A client suddenly collapses. Telemetry shows chaotic, irregular fibrillatory undulations with no identifiable QRS complexes or pulse. What is the immediate treatment?", 
+            image: "", 
+            options: [
+                "High-quality CPR and Immediate Defibrillation", 
+                "Synchronized Cardioversion at 50 J", 
+                "Atropine 1 mg IV push", 
+                "Endotracheal intubation before any shocks"
+            ], 
+            correct: 0, 
+            rationale: "VFib is a lethal cardiac arrest rhythm (no cardiac output/pulse). Treatment requires immediate CPR and unsynchronized defibrillation." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The monitor shows low-amplitude, fine chaotic baseline activity. No pulse is present. How does fine VFib differ from Asystole in management?", 
+            image: "", 
+            options: [
+                "Fine VFib is shocked; Asystole is NOT shocked (requires CPR and Epinephrine).", 
+                "Asystole requires synchronized cardioversion; Fine VFib requires atropine.", 
+                "Neither rhythm requires CPR.", 
+                "Fine VFib is treated only with IV pacing."
+            ], 
+            correct: 0, 
+            rationale: "VFib (coarse or fine) is a shockable rhythm. Asystole and PEA are non-shockable rhythms requiring CPR and Epinephrine." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "Every second complex on the telemetry monitor is a premature, wide, bizarre QRS complex followed by a compensatory pause. What pattern is this?", 
+            image: "", 
+            options: [
+                "Ventricular Trigeminy", 
+                "Ventricular Bigeminy", 
+                "Couplet PVCs", 
+                "Atrial Fibrillation"
+            ], 
+            correct: 1, 
+            rationale: "Ventricular Bigeminy occurs when every second beat is a PVC. (Trigeminy = every 3rd beat; Couplet = two PVCs in a row)." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A 58-year-old presenting with severe retrosternal chest pain radiating to the left jaw displays ST-segment elevation >2mm in leads V2-V4. Within what timeframe should PCI occur?", 
+            image: "", 
+            options: [
+                "Within 90 minutes", 
+                "Within 180 minutes", 
+                "Within 24 hours", 
+                "Within 12 hours"
+            ], 
+            correct: 0, 
+            rationale: "For acute STEMI, primary Percutaneous Coronary Intervention (PCI) should open the culprit vessel within 90 minutes of hospital arrival." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "During an exercise stress test, the client's ECG shows 2mm ST-segment depression below baseline and T-wave inversion. What does ST depression signify?", 
+            image: "", 
+            options: [
+                "Acute transmural infarction", 
+                "Myocardial ischemia / Non-STEMI", 
+                "Hyperkalemia", 
+                "Pericarditis"
+            ], 
+            correct: 1, 
+            rationale: "ST-segment depression and T-wave inversion indicate myocardial ischemia or non-ST-elevation ACS, contrasting with ST elevation in infarction." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "A renal failure patient with K+ 6.9 mEq/L displays tall, narrow, peaked ('tented') T waves and a widened QRS. Which medication is given IV to stabilize the myocardium?", 
+            image: "", 
+            options: [
+                "Calcium Gluconate 10% IV", 
+                "Furosemide IV", 
+                "Sodium Polystyrene Sulfonate (Kayexalate) PO", 
+                "Regular Insulin IV"
+            ], 
+            correct: 0, 
+            rationale: "IV Calcium Gluconate directly stabilizes the myocardial cell membrane to prevent lethal dysrhythmias in severe hyperkalemia." 
+        },
+        { 
+            topic: 'ecg', 
+            q: "The telemetry strip reveals a narrow vertical electrical spike immediately preceding each wide, bizarre QRS complex. What rhythm is depicted?", 
+            image: "", 
+            options: [
+                "Ventricular Paced Rhythm with 100% Capture", 
+                "Pacemaker failure to capture", 
+                "Atrial Paced Rhythm", 
+                "Artifact from muscle tremor"
+            ], 
+            correct: 0, 
+            rationale: "Successful ventricular capture by an artificial pacemaker is demonstrated by a pacing spike followed immediately by a QRS complex." 
+        }
+    ];
         
         // ABG
-        { topic: 'abg', q: 'A patient's ABG shows pH 7.28, PaCO2 58 mm Hg, and HCO3 24 mEq/L. What is the interpretation?', options: ['Uncompensated respiratory acidosis', 'Partially compensated metabolic acidosis', 'Uncompensated metabolic alkalosis', 'Fully compensated respiratory acidosis'], correct: 0, rationale: 'The pH is low (acidosis), the PaCO2 is high (respiratory), and the HCO3 is normal, indicating an uncompensated respiratory acidosis.' },
-        { topic: 'abg', q: 'What does a PaO2/FiO2 (P/F) ratio below 200 strongly indicate?', options: ['Mild COPD', 'Normal lung function', 'Severe intrapulmonary shunting and ARDS', 'Respiratory alkalosis'], correct: 2, rationale: 'A P/F ratio below 200 mm Hg indicates a large intrapulmonary shunt (approximately 20%) and is strongly diagnostic of severe ARDS.' },
-        { topic: 'abg', q: 'In metabolic alkalosis resulting from severe vomiting, how does the respiratory system initially attempt to compensate?', options: ['Hyperventilating to blow off CO2', 'Hypoventilating to retain CO2', 'Increasing tidal volume', 'Generating auto-PEEP'], correct: 1, rationale: 'In metabolic alkalosis, the respiratory system compensates by hypoventilating (decreasing rate/depth) to retain CO2, which acts as an acid to lower the pH toward normal limits.' },
+
 
         // Respiratory Assessment
-        { topic: 'assessment', q: 'During chest percussion, what does a "hyperresonant" sound typically indicate?', options: ['Normal healthy lung tissue', 'Fluid accumulation or pleural effusion', 'Increased amount of air, such as in pneumothorax or emphysema', 'Solid tumor mass'], correct: 2, rationale: 'Hyperresonance indicates trapped air or increased air space, frequently observed in conditions like emphysema, asthma, or a pneumothorax.' },
-        { topic: 'assessment', q: 'What finding is described as a crackling sensation under the fingertips indicating air in the subcutaneous tissues?', options: ['Tactile fremitus', 'Pleural friction rub', 'Subcutaneous crepitus', 'Rhonchi'], correct: 2, rationale: 'Subcutaneous crepitus (subcutaneous emphysema) feels like crunching "Rice Krispies" under the skin, indicating air has escaped from the lungs/airways into tissue layers.' },
-        { topic: 'assessment', q: 'Which adventitious breath sound is characterized by discontinuous, bubbling sounds caused by air moving through fluid?', options: ['Wheezes', 'Crackles (crepitations)', 'Stridor', 'Rhonchi'], correct: 1, rationale: 'Crackles are discontinuous, explosive sounds caused by air bubbling through fluid (e.g., pulmonary edema) or alveoli popping open.' },
 
         // Ventilatory Function
-        { topic: 'ventilatory', q: 'To prevent volutrauma in a patient with ARDS, which tidal volume setting is characteristic of a lung-protective strategy?', options: ['10 to 12 mL/kg', '8 to 10 mL/kg', '4 to 6 mL/kg', '1 to 3 mL/kg'], correct: 2, rationale: 'The "low stretch" or lung-protective protocol utilizes smaller tidal volumes (4-6 mL/kg of ideal body weight) to prevent alveolar overdistention and volutrauma.' },
-        { topic: 'ventilatory', q: 'What is the primary rationale for utilizing "permissive hypercapnia" in the management of severe ARDS?', options: ['To stimulate the respiratory drive for weaning', 'To prevent volutrauma by using lower tidal volumes, accepting higher CO2 levels', 'To actively dilate the pulmonary vasculature', 'To decrease the risk of oxygen toxicity'], correct: 1, rationale: 'Permissive hypercapnia allows CO2 to rise so that lower, safer tidal volumes can be used, protecting the fragile lungs from high-pressure barotrauma and shearing injuries.' },
-        { topic: 'ventilatory', q: 'When evaluating a patient's readiness to wean from mechanical ventilation, what does a Negative Inspiratory Force (NIF) of -15 cm H2O indicate?', options: ['Excellent inspiratory muscle strength, ready to extubate', 'Normal airway resistance', 'Weak respiratory muscles requiring continued mechanical ventilation', 'Excessive auto-PEEP'], correct: 2, rationale: 'A normal NIF is -75 to -100 cm H2O. A value less negative than -20 or -25 cm H2O indicates profound muscle weakness and failure to sustain spontaneous ventilation.' },
 
         // Hemodynamics
-        { topic: 'hemodynamics', q: 'Which hemodynamic parameter represents the volume of blood in the ventricles at the end of diastole?', options: ['Afterload', 'Preload', 'Cardiac Output', 'Systemic Vascular Resistance'], correct: 1, rationale: 'Preload is the filling volume or pressure in the ventricle at the end of diastole, representing the stretch on myocardial fibers before contraction.' },
-        { topic: 'hemodynamics', q: 'What is the normal range for central venous pressure (CVP)?', options: ['2 to 6 mm Hg', '8 to 15 mm Hg', '15 to 25 mm Hg', '70 to 105 mm Hg'], correct: 0, rationale: 'Normal CVP (or Right Atrial Pressure) is 2-6 mm Hg, used to evaluate right ventricular preload and guide fluid resuscitation.' },
-        { topic: 'hemodynamics', q: 'A critically ill patient has a Mixed Venous Oxygen Saturation (SvO2) of 55%. What physiological state is a likely cause?', options: ['Decreased oxygen delivery or increased tissue oxygen consumption', 'Sepsis with microcirculatory shunting', 'Normal physiological state', 'Oxygen toxicity'], correct: 0, rationale: 'Normal SvO2 is 60-80%. A drop below 60% indicates the tissues are extracting more oxygen due to either decreased delivery (e.g., low cardiac output in cardiogenic shock) or high demand (e.g., shivering, fever).' }
-    ];
+     ];
 
     let currentQuestions = [];
     let currentIndex = 0;
