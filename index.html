@@ -246,9 +246,14 @@
     </div>
 
     <!-- Quiz Area -->
+<!-- Quiz Area -->
     <div id="quiz-area">
         <div class="progress-tracker" id="progress-text">Question 1 of 10</div>
         <div class="question-text" id="question-text">Question goes here...</div>
+        
+        <!-- The new image element is pasted here -->
+        <img id="question-image" src="" alt="Clinical Image" style="display: none; max-width: 100%; max-height: 400px; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--border);">
+        
         <div class="options" id="options-container">
             <!-- Buttons injected here -->
         </div>
@@ -1350,13 +1355,24 @@ topic: 'ecg',
         }, 1000);
     }
 
-    function loadQuestion() {
+function loadQuestion() {
         document.getElementById('next-btn').style.display = 'none';
         document.getElementById('rationale-box').style.display = 'none';
         
         const q = currentQuestions[currentIndex];
         document.getElementById('progress-text').innerText = `${currentModuleTitle} - Question ${currentIndex + 1} of ${currentQuestions.length}`;
         document.getElementById('question-text').innerText = q.q;
+        
+        // --- NEW IMAGE LOGIC ---
+        const imageElement = document.getElementById('question-image');
+        if (q.image && q.image.trim() !== "") {
+            imageElement.src = q.image; // Make sure your image files are in the same folder as index.html
+            imageElement.style.display = 'block';
+        } else {
+            imageElement.style.display = 'none';
+            imageElement.src = "";
+        }
+        // -----------------------
         
         const optsContainer = document.getElementById('options-container');
         optsContainer.innerHTML = '';
