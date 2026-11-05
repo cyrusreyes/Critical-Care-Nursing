@@ -3254,6 +3254,13 @@ function loadQuestion() {
         document.getElementById('timer-display').innerText = `00:00`;
         document.getElementById('score-display').innerText = `Score: 0`;
     }
+    function getQuestionText(question) {
+    return question.q ?? question.question;
+}
+
+function getCorrectIndex(question) {
+    return question.correct ?? question.correctAnswer;
+}
 </script>
 </body>
 </html>
