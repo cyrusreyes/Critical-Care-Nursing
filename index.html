@@ -221,9 +221,9 @@
                 <div class="topic-desc">ARDS, Volutrauma, Permissive Hypercapnia, NIF & Weaning</div>
             </div>
             
-            <div class="topic-card" onclick="startQuiz('hemodynamics', 'Hemodynamics & Cardiophysiology')">
+            <div class="topic-card" onclick="startQuiz('hemodynamics', 'Hemodynamics & Cardiovascular')">
                 <div class="topic-icon">💓</div>
-                <div class="topic-title">Hemodynamics & Cardio</div>
+                <div class="topic-title">Hemodynamics & Cardiovascular problems</div>
                 <div class="topic-count">3 Questions</div>
                 <div class="topic-desc">Preload, Afterload, CVP, Mixed Venous Oxygen (SvO2)</div>
             </div>
@@ -3101,7 +3101,1452 @@ topic: 'ecg',
     correct: 1,
     rationale: "In healthy individuals, the respiratory drive is stimulated by increased carbon dioxide levels. However, patients with severe COPD who chronically retain CO2 rely on hypoxia (low oxygen levels) as their primary stimulus to breathe (the hypoxic drive). Administering excessive supplemental oxygen can eliminate this drive, leading to dangerous hypoventilation and worsening respiratory acidosis."
   }, 
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse is managing a patient with hypovolemic shock. The provider orders a fluid bolus. Which physiological principle best explains why an increase in preload will improve the patient's cardiac output?",
+    options: [
+      "Increased systemic vascular resistance increases ventricular contractility.",
+      "The greater the stretch of the myocardial fibers at the end of diastole, the greater the force of the next contraction.",
+      "Increased venous return directly stimulates the sympathetic nervous system to increase the heart rate.",
+      "Fluid resuscitation decreases the afterload, allowing the left ventricle to eject blood more easily."
+    ],
+    correct: 1,
+    rationale: "The Frank-Starling law of the heart dictates that the greater the stretch of the myocardial fibers (due to increased preload) at the end of diastole, the greater the force of the subsequent contraction. By giving a fluid bolus, venous return increases, which increases preload and ultimately stroke volume and cardiac output. Option A refers to afterload. Option D is incorrect because fluid administration increases volume, which does not independently decrease afterload."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is receiving an antiarrhythmic medication that prolongs repolarization by delaying the efflux of potassium. The nurse knows this medication primarily affects which phase of the cardiac action potential?",
+    options: [
+      "Phase 0",
+      "Phase 1",
+      "Phase 2",
+      "Phase 3"
+    ],
+    correct: 3,
+    rationale: "Phase 3 of the cardiac action potential is the rapid repolarization phase, which is primarily driven by the opening of slow voltage-gated potassium channels, allowing potassium to flow out of the cell. Phase 0 is rapid depolarization caused by sodium influx. Phase 2 is the plateau phase driven by calcium influx. Phase 4 is the resting membrane potential."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient in the intensive care unit has a radial arterial line in place. The nurse notices the continuous waveform shows a damped appearance (loss of the dicrotic notch) and the blood pressure reading is lower than expected. What is the nurse's priority action?",
+    options: [
+      "Administer a rapid fluid bolus.",
+      "Check the system for partial clotting, kinked tubing, or loose connections.",
+      "Reposition the transducer to the mid-clavicular line.",
+      "Immediately notify the healthcare provider to replace the catheter."
+    ],
+    correct: 1,
+    rationale: "Damped waveforms and inaccurate, abnormally low pressures in an arterial line can be caused by partial clotting at the catheter tip, kinking of the catheter, or the tip moving against the vessel wall. The nurse should check the tubing, aspirate, and flush the system with the fast flush valve. The transducer should be leveled to the midchest level, not the mid-clavicular line."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with heart failure has a central venous pressure (CVP) reading of 14 mm Hg. The nurse understands that this value indicates which of the following?",
+    options: [
+      "Decreased right ventricular preload",
+      "Normal right atrial pressure",
+      "Elevated right ventricular preload",
+      "Left ventricular failure"
+    ],
+    correct: 2,
+    rationale: "The normal range for central venous pressure (CVP) is 3 to 8 mm Hg, which measures the pressure in the right atrium and reflects right ventricular preload. A reading of 14 mm Hg is significantly elevated, indicating increased right ventricular preload, venous congestion, or right-sided fluid overload."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While assessing a patient's electrocardiogram (ECG) strip, the nurse counts the width of the QRS complex and notes it occupies 4 small squares. Based on this finding, what conclusion should the nurse draw?",
+    options: [
+      "The ventricular conduction time is normal.",
+      "The patient has an abnormal ventricular conduction delay.",
+      "The atrial depolarization is prolonged.",
+      "The patient is experiencing severe myocardial ischemia."
+    ],
+    correct: 1,
+    rationale: "On a standard ECG grid, one small box represents 0.04 seconds (40 ms). A normal QRS complex should measure less than 3 small squares (< 0.12 seconds). A QRS complex that is 4 small squares (0.16 seconds) or greater than 3 small squares indicates abnormal ventricular conduction, such as a bundle branch block."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A nurse observes sudden baseline jumps, wandering, and intermittent signal loss on the cardiac monitor that mimics ventricular fibrillation, yet the patient is awake, alert, and conversing normally. Which troubleshooting intervention is most appropriate?",
+    options: [
+      "Prepare for immediate defibrillation.",
+      "Assess the patient for shivering and provide a warm blanket.",
+      "Check for loose electrodes and re-secure the ECG leads.",
+      "Remove any mobile phones or electrical equipment from the bedside."
+    ],
+    correct: 2,
+    rationale: "Sudden baseline jumps, intermittent signal loss (apparent flatline), and erratic waveforms that mimic ventricular fibrillation are classic signs of a loose lead artifact. Normal QRS complexes may remain visible in other leads during the disturbance. Shivering causes synchronized sharp spikes known as muscle tremor, and electromagnetic interference (EMI) produces a thick baseline with regular, high-frequency spikes."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with Heart Failure with Reduced Ejection Fraction (HFrEF) is being discharged. The healthcare provider has prescribed four core foundational medications, often referred to as the 'four pillars of GDMT.' The nurse ensures the patient is educated on an evidence-based beta-blocker, a mineralocorticoid receptor antagonist (MRA), an ARNI, and which of the following medication classes?",
+    options: [
+      "Calcium Channel Blocker",
+      "SGLT2 Inhibitor",
+      "Thiazide Diuretic",
+      "Alpha-1 Blocker"
+    ],
+    correct: 1,
+    rationale: "The four foundational pillars of Guideline-Directed Medical Therapy (GDMT) for HFrEF are an ARNI (or ACE inhibitor/ARB), an evidence-based beta-blocker, a mineralocorticoid receptor antagonist (MRA), and an SGLT2 inhibitor. SGLT2 inhibitors (like dapagliflozin or empagliflozin) were initially developed for diabetes, but robust clinical trials have proven they significantly lower the risk of heart failure hospitalizations and mortality, earning them a permanent spot in the four-pillar regimen."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted with acute myocardial infarction (AMI). The nurse recalls that the infarction process creates distinct zones of tissue damage. Which of the following zones is characterized by irreversible cell death and tissue necrosis due to prolonged ischemia?",
+    options: [
+      "Zone of Ischemia",
+      "Zone of Injury",
+      "Zone of Infarction",
+      "Zone of Perfusion"
+    ],
+    correct: 2,
+    rationale: "Prolonged myocardial ischemia can lead to cell death and the formation of a necrotic area, which is characterized by the irreversible death of cells or tissue due to lack of oxygen. This central area of cell death is known as the zone of infarction (or necrosis). The zone of injury surrounds the infarcted area and represents tissue that is severely damaged but potentially viable if reperfused quickly, while the outermost zone of ischemia represents tissue that is hypoxic but not yet injured or dead."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse is wedging a pulmonary artery catheter (PAC) to obtain a pulmonary capillary wedge pressure (PCWP). The nurse inflates the balloon but feels resistance, and the monitor's waveform remains in the pulmonary artery (PA) pattern. What is the most appropriate nursing action?",
+    options: [
+      "Push an additional 1.5 cc of air into the balloon until the wedge waveform appears.",
+      "Stop inflating, deflate the balloon, and notify the healthcare provider.",
+      "Flush the catheter rapidly with saline while the balloon is inflated.",
+      "Leave the balloon inflated and document the PA pressure as the PCWP."
+    ],
+    correct: 1,
+    rationale: "Resistance during balloon inflation or failure to obtain a PCWP waveform suggests a problem with balloon integrity or catheter positioning. Overinflating the balloon can cause one of the most serious complications of PAC monitoring: pulmonary artery rupture. The nurse should not inflate the balloon if resistance is met. Additionally, the catheter should never be flushed when in the wedge position. The balloon must be deflated and the physician notified to reposition the catheter."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient's ECG rhythm strip reveals an extremely rapid, disorganized pattern of depolarization with an irregular ventricular response. The nurse notes spiked, nonrounded waveforms instead of clear P waves. The nurse identifies this rhythm as:",
+    options: [
+      "Atrial Flutter",
+      "Sinus Tachycardia",
+      "Atrial Fibrillation",
+      "Heart Block"
+    ],
+    correct: 2,
+    rationale: "Atrial fibrillation is defined as an extremely rapid and disorganized pattern of depolarization in the atria, creating an irregular rhythm. Instead of normal, rounded P waves, spiked or nonrounded fibrillatory waves are seen. Atrial flutter presents with a saw-toothed P wave pattern. A heart block presents with multiple P waves per QRS complex or delayed PR intervals."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is scheduled for a cardiac catheterization to evaluate tricuspid valve function and measure pulmonary artery pressures. The nurse knows this procedure requires which of the following approaches?",
+    options: [
+      "Left-sided catheterization accessed via the femoral or brachial artery.",
+      "Right-sided catheterization accessed via a vein.",
+      "Left-sided catheterization accessed via the radial artery.",
+      "Right-sided catheterization accessed via the abdominal aorta."
+    ],
+    correct: 1,
+    rationale: "A right-sided heart catheterization is used to measure right-sided heart pressures, evaluate the tricuspid or pulmonic valves, and measure pulmonary artery pressures. It involves inserting the catheter into a vein, such as the antecubital or femoral vein, and advancing it through the vena cava into the right side of the heart. Left-sided heart catheterization is used to visualize coronary arteries and assess the left ventricle or mitral/aortic valves, which requires arterial access."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During the cardiac cycle, there is a specific period where the ventricles relax, the atrioventricular (AV) valves open, and blood flows from the atria into the ventricles. This phase is known as:",
+    options: [
+      "Ventricular systole",
+      "Ventricular repolarization",
+      "Ventricular diastole",
+      "Atrial kick"
+    ],
+    correct: 2,
+    rationale: "The cardiac cycle refers to the events taking place in the heart during one heartbeat. Ventricular diastole is the relaxation phase of the ventricles. During this time, the atrioventricular (AV) valves (tricuspid and mitral) open, allowing blood to passively flow from the atria into the ventricles for filling. Ventricular systole represents the active contraction phase."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse obtains a pulmonary artery occlusion pressure (PAOP), also known as the pulmonary capillary wedge pressure (PCWP), of 12 mm Hg on a patient. The nurse knows that this parameter provides an indirect estimate of the pressure in which cardiac structure?",
+    options: [
+      "Right Atrium",
+      "Right Ventricle",
+      "Left Atrium",
+      "Pulmonary Artery"
+    ],
+    correct: 2,
+    rationale: "The pulmonary capillary wedge pressure (PCWP) or pulmonary artery occlusion pressure (PAOP) provides an indirect estimate of left atrial pressure and left ventricular end-diastolic pressure (left ventricular preload). The normal range is 4 to 15 mm Hg. Right atrial pressure is measured by central venous pressure (CVP)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted to the emergency department with complaints of chest pain upon exertion that is relieved by rest. The nurse understands that angina pectoris is a clinical syndrome characterized by episodes of chest pain resulting from:",
+    options: [
+      "Myocardial necrosis",
+      "Pulmonary hypertension",
+      "Myocardial ischemia",
+      "Left ventricular hypertrophy"
+    ],
+    correct: 2,
+    rationale: "Angina is a clinical syndrome characterized by episodes of chest pain or discomfort resulting from myocardial ischemia, which is typically due to coronary artery disease (CAD). Ischemia occurs when the myocardial oxygen demand exceeds the supply provided by the coronary arteries. If the ischemia is prolonged and severe, it can progress to irreversible myocardial necrosis (infarction), but angina itself represents transient ischemia."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While analyzing a patient's ECG rhythm, the nurse notes that there are multiple regular P waves for every QRS complex. The nurse should suspect which of the following rhythm disorders?",
+    options: [
+      "Sinus Tachycardia",
+      "Abnormal ventricular conduction",
+      "Atrial Fibrillation",
+      "Heart Block"
+    ],
+    correct: 3,
+    rationale: "When there is more than one P wave before each QRS complex, it indicates impaired electrical signals between the atria and the ventricles, representing a heart block. In a normal sinus rhythm, there is a 1:1 ratio of P waves to QRS complexes. Atrial fibrillation lacks clear P waves."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with severe heart failure develops sudden-onset tachycardia. The nurse understands that while a normal, healthy individual increases their heart rate to increase cardiac output, a rapid heart rate in a patient with cardiac dysfunction can lead to a drop in cardiac output. What is the primary physiological reason for this?",
+    options: [
+      "Tachycardia increases the parasympathetic nervous system response.",
+      "Tachycardia increases ventricular filling time, leading to overstretch of the myocardium.",
+      "Tachycardia decreases ventricular filling time, which reduces preload and stroke volume.",
+      "Tachycardia causes profound vasodilation, dropping systemic vascular resistance."
+    ],
+    correct: 2,
+    rationale: "An increase in heart rate decreases the ventricular filling time (diastole). By reducing the filling time, preload is reduced, which in turn decreases stroke volume. Because cardiac output is the product of stroke volume multiplied by heart rate, this severe drop in stroke volume ultimately leads to a decreased cardiac output, especially in patients with existing cardiac dysfunction."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A nurse is assessing a patient's 12-lead ECG and notices inverted P waves in Lead I, an abnormal QRS complex and T wave in Lead I, and upright T waves in lead aVR. What is the most likely cause of these findings?",
+    options: [
+      "The patient is experiencing an acute myocardial infarction.",
+      "The patient has an underlying right bundle branch block.",
+      "The electrodes for the right and left arms have been reversed.",
+      "The patient has severe electromagnetic interference."
+    ],
+    correct: 2,
+    rationale: "Reversing the electrodes to the right and left arms results in specific, predictable artifact changes on the ECG: inverted P waves in Lead I, an abnormal QRS complex and T wave in lead I, and upright T waves in lead aVR. Identifying this technical error prevents the misdiagnosis of a physiological cardiac abnormality."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient's sinoatrial (SA) node fails to fire. The nurse knows that the atrioventricular (AV) node will automatically take over as the heart's secondary pacemaker. What inherent rate should the nurse expect to see on the cardiac monitor?",
+    options: [
+      "60-100 beats/min",
+      "40-60 beats/min",
+      "Less than 40 beats/min",
+      "100-150 beats/min"
+    ],
+    correct: 1,
+    rationale: "The SA node is the natural pacemaker of the heart with an intrinsic firing rate of 60 to 100 beats/min. If the SA node fails, the AV node can conduct electrical impulses and function as the pacemaker, but its intrinsic rate is slower, typically 40 to 60 beats/min. The Purkinje fibers have a much slower intrinsic rate of less than 40 beats/min."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is placed on a continuous intravenous infusion of a potent vasoconstrictor to treat shock. The nurse understands that this medication will primarily affect which determinant of cardiac output?",
+    options: [
+      "Preload",
+      "Heart Rate",
+      "Contractility",
+      "Afterload"
+    ],
+    correct: 3,
+    rationale: "Systemic vascular resistance is a key component of afterload, which is the resistance to left ventricular ejection. By administering a vasoconstrictor, the blood vessels constrict, which directly increases systemic vascular resistance and thereby increases the afterload that the heart must pump against."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "To ensure accurate hemodynamic pressure readings from an arterial line or a pulmonary artery catheter, the nurse must level the transducer air-reference port. Where should this be placed anatomically?",
+    options: [
+      "The 2nd intercostal space at the right sternal border",
+      "The 4th intercostal space at the mid-clavicular line",
+      "Midchest level (the phlebostatic axis)",
+      "The 5th intercostal space at the left sternal border"
+    ],
+    correct: 2,
+    rationale: "To obtain accurate hemodynamic values, the transducer's air-reference port must be maintained at the midchest level, which aligns with the right atrium. Failure to level the transducer correctly at this axis will result in artificially high readings (if placed too low) or artificially low readings (if placed too high)."
+  },
+        const allQuestions = [
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is diagnosed with heart failure following an echocardiogram. The provider notes a Left Ventricular Ejection Fraction (LVEF) of 55%, but the patient experiences shortness of breath and fatigue. The nurse recognizes that this presentation aligns with which type of heart failure?",
+    options: [
+      "Heart Failure with Reduced Ejection Fraction (HFrEF)",
+      "Systolic Heart Failure",
+      "Heart Failure with Preserved Ejection Fraction (HFpEF)",
+      "Right-Sided Heart Failure"
+    ],
+    correct: 2,
+    rationale: "Heart Failure with Preserved Ejection Fraction (HFpEF), also known as diastolic heart failure, occurs when the left ventricle cannot relax or fill fully, indicating a filling problem. In HFpEF, the LVEF is >= 50%. In contrast, Heart Failure with Reduced Ejection Fraction (HFrEF), or systolic heart failure, is characterized by a reduced contraction and an LVEF <= 40%."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient arrives at the emergency department with severe, crushing chest pain. The 12-lead ECG reveals ST-segment elevation of 2 mm in leads V1, V2, V3, and V4. The nurse should anticipate immediate interventions for which condition?",
+    options: [
+      "Non-ST-Elevation Myocardial Infarction (NSTEMI)",
+      "ST-Elevation Myocardial Infarction (STEMI)",
+      "Stable Angina Pectoris",
+      "Pericarditis"
+    ],
+    correct: 1,
+    rationale: "ST segment elevation in two or more contiguous leads (such as V1 through V4) indicates a possible STEMI (ST-Elevation Myocardial Infarction). This finding signifies acute, complete occlusion of a coronary artery leading to myocardial injury, which requires immediate reperfusion therapy. NSTEMI typically presents with ST depression or T-wave inversion, while stable angina is relieved by rest and lacks these acute, severe ischemic changes."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with heart failure and atrial fibrillation is receiving digoxin (Lanoxin). During the morning assessment, the patient complains of a new onset of visual disturbances, nausea, and vomiting. What is the nurse's priority action?",
+    options: [
+      "Administer an antiemetic and dim the lights in the room.",
+      "Recognize these as signs of digoxin toxicity and hold the medication.",
+      "Request an order for an additional dose of digoxin to control the heart rate.",
+      "Administer a PRN dose of intravenous potassium."
+    ],
+    correct: 1,
+    rationale: "Digoxin is a cardiac glycoside that increases the force of the heart's contractions. Signs of digoxin poisoning and toxicity include visual disturbances, nausea or vomiting, and the development of dangerous arrhythmias. The nurse must hold the dose and notify the provider to have a serum digoxin level drawn."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with a history of chronic obstructive pulmonary disease (COPD) is admitted for exacerbation of right-sided heart failure. Which clinical manifestation should the nurse expect to find upon assessment?",
+    options: [
+      "Crackles auscultated in bilateral lung bases",
+      "Frothy, pink-tinged sputum",
+      "Jugular venous distention (JVD) and ascites",
+      "An S3 heart sound"
+    ],
+    correct: 2,
+    rationale: "Right-sided heart failure causes fluid to back up into the systemic venous circulation. Signs and symptoms of right-sided heart failure include elevated JVD, hepatosplenomegaly, increased abdominal girth (ascites), and peripheral edema in the feet, ankles, and legs. Left-sided heart failure causes fluid to back up into the lungs, leading to signs of pulmonary edema such as crackles, frothy sputum, and an S3 gallop."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is being evaluated for an Acute Myocardial Infarction (AMI). The healthcare provider orders serial cardiac biomarkers. Which of the following biomarkers are considered the most specific and sensitive indicators of myocardial muscle injury and necrosis?",
+    options: [
+      "Creatine Kinase (CK-MB)",
+      "Myoglobin",
+      "Troponin I and Troponin T",
+      "Brain Natriuretic Peptide (BNP)"
+    ],
+    correct: 2,
+    rationale: "Troponin I and Troponin T are proteins found exclusively in myocardial cells. They are released into the bloodstream when there is myocardial damage and necrosis. They are highly specific to cardiac tissue and are the gold standard biomarkers for diagnosing an acute myocardial infarction (AMI). BNP is a marker for heart failure, not acute ischemic necrosis."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with HFrEF is being started on an Angiotensin Receptor-Neprilysin Inhibitor (ARNI) such as sacubitril/valsartan. The patient is currently taking lisinopril (an ACE inhibitor). What instruction must the nurse anticipate regarding the patient's medication regimen?",
+    options: [
+      "The patient should take both the ARNI and the ACE inhibitor to maximize afterload reduction.",
+      "The ACE inhibitor must be discontinued before starting the ARNI, as only one pathway should be chosen.",
+      "The patient should substitute the ARNI for their beta-blocker.",
+      "The patient should take the ARNI only on days they experience severe dyspnea."
+    ],
+    correct: 1,
+    rationale: "In the four pillars of GDMT for HFrEF, an ARNI is preferred; however, an ACE inhibitor or ARB can be used when an ARNI is unsuitable. The guidelines strictly state to 'choose ONE pathway—not all three'. Taking an ARNI with an ACE inhibitor significantly increases the risk of severe angioedema and hypotension, so the ACE inhibitor must be discontinued."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The intensive care nurse is setting up a monitoring system for a newly inserted pulmonary artery catheter (PAC). The nurse knows that the proximal injectate port of the PAC is anatomically located in which cardiac structure?",
+    options: [
+      "Pulmonary Artery",
+      "Right Ventricle",
+      "Left Atrium",
+      "Right Atrium"
+    ],
+    correct: 3,
+    rationale: "The proximal injectate port of the pulmonary artery catheter is located in the right atrium. This port is used to measure central venous pressure (CVP) and right atrial pressure, as well as to administer D5W injectate boluses for cardiac output calculations."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The cardiac monitor of a critically ill patient suddenly alarms. The nurse observes a highly irregular, chaotic, wavy line with unmeasurable rates and no discernible P waves, PR intervals, or QRS complexes. The patient is unresponsive and pulseless. What is the immediate priority intervention?",
+    options: [
+      "Synchronized cardioversion",
+      "Administration of IV Amiodarone",
+      "Immediate defibrillation",
+      "Carotid sinus massage"
+    ],
+    correct: 2,
+    rationale: "The rhythm described is ventricular fibrillation (VF), which is characterized by a wavy line, no QRS complexes, absent P waves, and an unmeasurable rate. Because the patient is unstable with no pulse, the immediate management for this lethal arrhythmia is immediate defibrillation."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During a cardiac arrest code, the nurse assesses the monitor while chest compressions are being actively delivered. The ECG shows a continuous, regular, wavy artifact. To accurately determine the patient's underlying rhythm, what action should the team take?",
+    options: [
+      "Administer an antiarrhythmic medication based on the wavy waveform.",
+      "Look for the underlying rhythm during the pause for ventilations if performing a 30:2 ratio.",
+      "Increase the gain (size) on the ECG monitor to make the QRS visible over the compressions.",
+      "Defibrillate immediately because the wavy line indicates ventricular fibrillation."
+    ],
+    correct: 1,
+    rationale: "CPR compressions create a wavy artifact that can make it difficult to determine the underlying rhythm. If the team is performing CPR at a 30:2 compression-to-ventilation ratio, the underlying rhythm can be visualized during the pause for ventilations. Alternatively, the rhythm is checked during brief, scheduled pulse checks."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with a pulmonary artery catheter has a continuously monitored pulmonary artery pressure (PAP). The nurse documents the current PAP as 22/10 mm Hg. How should the nurse interpret this finding?",
+    options: [
+      "It is elevated, indicating severe pulmonary hypertension.",
+      "It is abnormally low, suggesting severe hypovolemia.",
+      "It is within the normal expected range.",
+      "It indicates that the catheter is permanently wedged."
+    ],
+    correct: 2,
+    rationale: "The normal range for pulmonary artery pressure (PAP) is 15 to 30 mm Hg for the systolic measurement and 3 to 12 mm Hg for the diastolic measurement. A reading of 22/10 mm Hg falls perfectly within the normal range for PAP."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "If the sinoatrial (SA) node and the atrioventricular (AV) node both fail to generate an electrical impulse, the Purkinje fibers can initiate depolarization. The nurse knows that the inherent firing rate of the Purkinje fibers is:",
+    options: [
+      "60 to 100 beats/min",
+      "40 to 60 beats/min",
+      "Less than 40 beats/min",
+      "100 to 150 beats/min"
+    ],
+    correct: 2,
+    rationale: "The Purkinje fibers have the fastest conduction rate within the entire heart muscle to ensure all cells depolarize simultaneously, but if they must function as a backup pacemaker, their intrinsic firing rate is very slow, at less than 40 beats/min."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is prescribed Amiodarone, a Class III antiarrhythmic medication, for the long-term management of recurrent arrhythmias. The nurse educates the patient about which rare but serious adverse effect associated with this medication?",
+    options: [
+      "Profound hypokalemia",
+      "Optic neuropathy leading to blurred vision",
+      "Sudden onset of hypertension",
+      "Increased auditory acuity"
+    ],
+    correct: 1,
+    rationale: "Amiodarone is a Class III antiarrhythmic that prevents the conduction of unwanted electrical activity. While common side effects include nausea and bluish-grey skin discoloration, rare but severe side effects include optic neuropathy (which leads to blurred vision) and peripheral neuropathy. Long-term use can also cause significant lung damage."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While monitoring a patient with a pulmonary artery catheter, the nurse notices that the continuous pulmonary artery (PA) waveform has spontaneously flattened out and now resembles a dampened pulmonary artery wedge pressure (PAWP) tracing, even though the balloon is completely deflated. The nurse suspects which complication?",
+    options: [
+      "Pulmonary artery rupture",
+      "Thromboembolism at the right atrium",
+      "Distal migration and 'overwedging' of the catheter tip",
+      "Complete heart block"
+    ],
+    correct: 2,
+    rationale: "If the PA catheter migrates too far forward (distally) into a small pulmonary vessel, it can spontaneously wedge or become 'overwedged' without balloon inflation, yielding a dampened PAW waveform. This prolonged wedging can cut off blood supply, leading to pulmonary hemorrhage or infarction. The nurse should gently pull the catheter back until the typical PA waveform reappears, or notify the provider depending on hospital policy."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A nurse is analyzing an ECG tracing and notes a regular rhythm with a ventricular rate of 75 beats per minute, but the atrial rate is 300 beats per minute. The baseline shows a distinct, regular, 'sawtooth' pattern without standard P waves. The nurse interprets this rhythm as:",
+    options: [
+      "Atrial Fibrillation",
+      "Atrial Flutter",
+      "Supraventricular Tachycardia (SVT)",
+      "Ventricular Tachycardia"
+    ],
+    correct: 1,
+    rationale: "Atrial flutter is characterized by an extremely rapid atrial rate (250 to 350 beats/min) and regular, 'sawtooth' flutter waves (F waves) instead of normal P waves. Atrial fibrillation, conversely, has fibrillatory waves without a regular sawtooth pattern and typically presents with a highly irregular ventricular response."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "As part of the four pillars of Guideline-Directed Medical Therapy (GDMT) for a patient with Heart Failure with Reduced Ejection Fraction (HFrEF), the provider prescribes a Mineralocorticoid Receptor Antagonist (MRA). Which medication belongs to this specific drug class?",
+    options: [
+      "Dapagliflozin",
+      "Metoprolol succinate",
+      "Spironolactone",
+      "Sacubitril/valsartan"
+    ],
+    correct: 2,
+    rationale: "The four pillars of GDMT include an ARNI, an evidence-based beta-blocker, an MRA, and an SGLT2 inhibitor. The Mineralocorticoid Receptor Antagonist (MRA) class includes medications such as Spironolactone and Eplerenone. Dapagliflozin is an SGLT2 inhibitor, metoprolol is a beta-blocker, and sacubitril/valsartan is an ARNI."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse is teaching a nursing student about hemodynamics. The nurse asks the student how Cardiac Output (CO) is calculated. Which formula indicates the student understands the concept?",
+    options: [
+      "Blood Pressure * Systemic Vascular Resistance",
+      "Heart Rate * Stroke Volume",
+      "Systolic Blood Pressure + (Diastolic Blood Pressure * 2) / 3",
+      "Cardiac Index / Body Surface Area"
+    ],
+    correct: 1,
+    rationale: "Cardiac output (CO) is defined as the amount of blood ejected from the ventricle in a minute. It is calculated by multiplying the Heart Rate (HR) by the Stroke Volume (SV). Option C is the formula for Mean Arterial Pressure (MAP)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted to the telemetry unit. The nurse observes a rhythm where the PR interval becomes progressively longer with each successive beat until a P wave is generated but no QRS complex follows (a 'dropped' beat). This cycle then repeats. What rhythm is this?",
+    options: [
+      "First-degree AV block",
+      "Second-degree AV block Type I (Wenckebach)",
+      "Second-degree AV block Type II (Mobitz II)",
+      "Third-degree AV block"
+    ],
+    correct: 1,
+    rationale: "Second-degree AV block Type I (Wenckebach) is characterized by conduction that is progressively delayed through the AV node, visualized as a progressively lengthening PR interval until an impulse fails to conduct entirely, resulting in a dropped QRS complex."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While reviewing the medical history of a patient diagnosed with right-sided heart failure, the nurse expects to find which of the following common contributing conditions?",
+    options: [
+      "Left ventricular infarction",
+      "Aortic stenosis",
+      "Chronic Obstructive Pulmonary Disease (COPD)",
+      "Essential hypertension"
+    ],
+    correct: 2,
+    rationale: "Chronic lung diseases like COPD increase pulmonary vascular resistance, forcing the right ventricle to work harder to pump blood into the lungs, eventually leading to right-sided heart failure (cor pulmonale). Left ventricular infarction, aortic stenosis, and systemic hypertension are primary causes of left-sided heart failure."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is brought to the emergency department after prolonged cold exposure. The ECG tracing shows a series of sharp, irregular, spiked waveforms heavily distorting the baseline, primarily in leads I, II, and III. The nurse notes the spikes are synchronized with the patient's physical shivering. What type of artifact is this?",
+    options: [
+      "Electromagnetic interference (EMI)",
+      "Cardiopulmonary resuscitation (CPR) artifact",
+      "Loose lead artifact",
+      "Muscle tremor artifact"
+    ],
+    correct: 3,
+    rationale: "Muscle tremor artifacts are usually caused by shivering. Because skeletal muscles contract together during shivering, the ECG displays synchronized, sharp spikes that obscure the baseline, most notably seen on limb leads I, II, and III."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with HFrEF is being optimized on their Guideline-Directed Medical Therapy (GDMT). The nurse knows that only specific, evidence-based beta-blockers are proven to reduce mortality in this population. Which of the following beta-blockers is appropriate for this pillar of therapy?",
+    options: [
+      "Atenolol",
+      "Propranolol",
+      "Carvedilol",
+      "Labetalol"
+    ],
+    correct: 2,
+    rationale: "According to the four pillars of GDMT for HFrEF, the specific evidence-based beta-blockers proven to be effective and safe are Carvedilol, Metoprolol succinate, and Bisoprolol. While other beta-blockers exist, they do not have the same level of robust clinical trial evidence for improving survival specifically in HFrEF."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is diagnosed with a massive myocardial infarction caused by an occlusion of the 'widow-maker' artery. The nurse knows this colloquial term refers to which coronary vessel that supplies blood to the anterior wall of the left ventricle and the interventricular septum?",
+    options: [
+      "Right Coronary Artery (RCA)",
+      "Circumflex Artery",
+      "Left Anterior Descending (LAD) Artery",
+      "Obtuse Marginal Artery"
+    ],
+    correct: 2,
+    rationale: "The Left Anterior Descending (LAD) artery is a primary branch of the left coronary artery that distributes blood to the left side of the heart, including the massive pumping chamber of the left ventricle and the interventricular septum. Because it supplies such a critical mass of the myocardium, an acute occlusion is highly lethal, earning it the nickname 'widow-maker'."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient returns to the intensive care unit after a left-sided cardiac catheterization via a right femoral arterial approach. Two hours post-procedure, the patient complains of severe right flank and lower back pain. The blood pressure has dropped from 130/80 to 90/50 mm Hg, and the heart rate is 115 beats/min. What complication should the nurse suspect?",
+    options: [
+      "Acute pulmonary embolism",
+      "Retroperitoneal hemorrhage",
+      "Cardiac tamponade",
+      "Femoral artery thrombosis"
+    ],
+    correct: 1,
+    rationale: "Back or flank pain combined with hemodynamic deterioration (hypotension, tachycardia) following a femoral arterial puncture is a classic clinical presentation of a retroperitoneal hemorrhage. Blood can leak from the arterial puncture site into the retroperitoneal space, causing significant hidden blood loss and referred back/flank pain."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A 12-lead ECG is obtained for a patient experiencing crushing chest pain. The nurse notes distinct ST-segment elevations in leads II, III, and aVF. According to the progression of myocardial damage, ST-segment elevation represents which zone of the infarction process?",
+    options: [
+      "Zone of Ischemia",
+      "Zone of Injury",
+      "Zone of Infarction",
+      "Zone of Necrosis"
+    ],
+    correct: 1,
+    rationale: "In the infarction process, the Zone of Injury represents cardiac muscle that is severely damaged but potentially viable if reperfusion occurs rapidly. It is represented on the ECG by ST-segment elevation. The Zone of Ischemia is represented by T-wave inversion, and the Zone of Infarction (necrosis) is represented by a pathologic Q wave."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A nurse is admitting a patient with a long history of uncontrolled essential hypertension. The provider diagnoses the patient with exacerbation of left-sided heart failure. Which assessment finding correlates specifically with left ventricular dysfunction?",
+    options: [
+      "Jugular venous distension (JVD)",
+      "Hepatomegaly and ascites",
+      "Pitting edema of the lower extremities",
+      "Tachypnea and pink-tinged frothy sputum"
+    ],
+    correct: 3,
+    rationale: "Left-sided heart failure prevents the left ventricle from effectively pumping blood forward into the systemic circulation, causing blood to back up into the pulmonary veins and capillaries. This pulmonary congestion leads to tachypnea, crackles, shortness of breath, and pink-tinged frothy sputum (pulmonary edema). JVD, ascites, and peripheral edema are classic signs of right-sided heart failure."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A 45-year-old patient reports experiencing intense chest pain that predictably occurs every morning around 4:00 AM while resting in bed. The patient has no history of physical exertion prior to the pain. The nurse suspects the patient is experiencing which type of angina?",
+    options: [
+      "Stable Angina",
+      "Unstable Angina",
+      "Variant (Prinzmetal) Angina",
+      "Angina Decubitus"
+    ],
+    correct: 2,
+    rationale: "Variant or Prinzmetal angina is caused by coronary artery vasospasm rather than a fixed atherosclerotic plaque. It characteristically occurs at rest (often during the early morning hours) and follows a cyclic or regular pattern. Stable angina is triggered by exertion, and angina decubitus occurs specifically when the patient sits or stands up."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During the bedside insertion of a pulmonary artery catheter (PAC), the critical care nurse closely monitors the patient's continuous ECG. As the catheter tip passes through the right ventricle, the nurse should be most alert for which of the following common complications?",
+    options: [
+      "Atrial fibrillation",
+      "Ventricular dysrhythmias (e.g., PVCs or Ventricular Tachycardia)",
+      "First-degree AV block",
+      "Sinus bradycardia"
+    ],
+    correct: 1,
+    rationale: "As the PAC is advanced through the right heart chambers, the catheter tip can irritate the endocardium. When it passes through the right ventricle, this mechanical irritation frequently triggers ventricular dysrhythmias, such as premature ventricular contractions (PVCs) or short runs of ventricular tachycardia."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is receiving a Class I antiarrhythmic medication that acts as a sodium channel blocker. The nurse knows that by inhibiting the rapid influx of sodium into the myocardial cells, this medication directly slows which phase of the cardiac action potential?",
+    options: [
+      "Phase 0",
+      "Phase 1",
+      "Phase 2",
+      "Phase 4"
+    ],
+    correct: 0,
+    rationale: "Phase 0 is the rapid depolarization phase of the cardiac action potential, which is driven by the opening of fast sodium channels and a massive influx of sodium ions into the cell. Sodium channel blockers target this specific phase to slow conduction and suppress arrhythmogenesis. Phase 2 is the plateau phase (calcium influx), and Phase 3 is repolarization (potassium efflux)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient goes into atrial fibrillation, losing the coordinated contraction of the atria at the end of ventricular diastole. The nurse understands that this loss of the 'atrial kick' can reduce the patient's cardiac output by approximately:",
+    options: [
+      "5% to 10%",
+      "10% to 15%",
+      "20% to 30%",
+      "50% to 60%"
+    ],
+    correct: 2,
+    rationale: "Ventricular filling occurs largely passively during diastole, but the final 20% to 30% of blood volume is actively pumped into the ventricles by the contraction of the atria, a mechanical event known as the 'atrial kick.' When a patient develops atrial fibrillation, the atria quiver instead of contracting effectively, causing a sudden loss of this atrial kick and a subsequent drop in stroke volume and cardiac output."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "To maintain the patency of an invasive arterial line and prevent blood from backing up into the noncompliant tubing, the nurse must ensure that the continuous flush system is pressurized to:",
+    options: [
+      "100 mm Hg",
+      "150 mm Hg",
+      "200 mm Hg",
+      "300 mm Hg"
+    ],
+    correct: 3,
+    rationale: "Invasive hemodynamic monitoring systems (like arterial lines) require a pressurized flush system to overcome the patient's arterial pressure and deliver a continuous flush of 3 to 4 mL/hour. The pressure bag must be inflated and maintained at 300 mm Hg to prevent blood from backing up into the tubing and clotting the catheter."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted with ongoing ischemic chest pain. The initial 12-lead ECG shows ST-segment depression and T-wave inversion, but no ST-segment elevation. Subsequent laboratory results reveal significantly elevated Troponin I levels. The nurse classifies this presentation as:",
+    options: [
+      "Stable Angina",
+      "Non-ST-Elevation Myocardial Infarction (NSTEMI)",
+      "ST-Elevation Myocardial Infarction (STEMI)",
+      "Unstable Angina"
+    ],
+    correct: 1,
+    rationale: "A Non-STEMI (NSTEMI) is characterized by ongoing ischemic chest pain and elevated cardiac biomarkers (Troponins), indicating myocardial necrosis, but without the classic ST-segment elevation on the ECG. Instead, the ECG may show normal ST segments, ST depression, or T-wave inversion. Unstable angina may present with similar ECG changes but lacks the elevation in cardiac biomarkers."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with acute decompensated heart failure and pulmonary edema is prescribed a continuous intravenous infusion of Nitroglycerin. The nurse understands that the primary hemodynamic benefit of this medication at standard doses is:",
+    options: [
+      "Increasing myocardial contractility (positive inotrope).",
+      "Causing profound arterial vasoconstriction to raise blood pressure.",
+      "Promoting venous vasodilation to decrease preload and reduce ventricular workload.",
+      "Decreasing the heart rate to improve coronary perfusion time."
+    ],
+    correct: 2,
+    rationale: "Nitroglycerin is primarily a potent venous vasodilator. By dilating the veins, it pools blood in the periphery, which significantly decreases venous return to the right side of the heart (decreases preload). This reduction in preload reduces the stretch and workload of the myocardium and effectively relieves pulmonary congestion/edema."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient presents to the emergency department with severe dyspnea and wheezing. The provider is trying to differentiate between a respiratory exacerbation (like COPD) and an acute heart failure exacerbation. Which laboratory test will best help confirm heart failure as the primary cause of the patient's symptoms?",
+    options: [
+      "Creatine Kinase-MB (CK-MB)",
+      "Brain Natriuretic Peptide (BNP)",
+      "C-Reactive Protein (CRP)",
+      "D-Dimer"
+    ],
+    correct: 1,
+    rationale: "Brain Natriuretic Peptide (BNP) is a neurohormone secreted by the ventricles of the heart in response to excessive stretching and volume overload. It is a highly specific and sensitive diagnostic biomarker for identifying heart failure as the cause of dyspnea. CK-MB is used for myocardial infarction, CRP measures generalized inflammation, and D-Dimer assesses for clotting/pulmonary embolism."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The critical care nurse is analyzing a patient's hemodynamic profile. The patient has a Cardiac Output (CO) of 4.5 L/min. The nurse calculates the Cardiac Index (CI) to be 2.2 L/min/m². Why is the CI considered a more accurate indicator of the patient's cardiovascular status than the CO alone?",
+    options: [
+      "Cardiac Index accounts for the patient's systemic vascular resistance.",
+      "Cardiac Index is directly measured by the pulmonary artery catheter, while CO is an estimate.",
+      "Cardiac Index relates the cardiac output to the patient's individual body surface area (BSA).",
+      "Cardiac Index subtracts the pulmonary artery occlusion pressure from the stroke volume."
+    ],
+    correct: 2,
+    rationale: "Cardiac output is the total volume of blood pumped per minute, but a CO that is adequate for a 100-pound patient would be completely inadequate for a 300-pound patient. Cardiac Index (CI) individualizes this measurement by dividing the cardiac output by the patient's Body Surface Area (BSA), providing a highly accurate reflection of whether the pump function is meeting that specific patient's metabolic demands."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During a routine bed bath, a patient bears down and performs a Valsalva maneuver to move up in bed. The patient's heart rate immediately drops from 85 to 42 beats/min. The nurse recognizes this response is primarily mediated by:",
+    options: [
+      "Sympathetic nervous system stimulation.",
+      "Parasympathetic stimulation via the vagus nerve.",
+      "A sudden drop in systemic vascular resistance.",
+      "An acute loss of left ventricular contractility."
+    ],
+    correct: 1,
+    rationale: "Bearing down (the Valsalva maneuver) stimulates the baroreceptors and directly activates the parasympathetic nervous system via the vagus nerve (cranial nerve X). Vagal stimulation slows conduction through the SA and AV nodes, resulting in a rapid decrease in the heart rate (bradycardia)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient who suffered a massive STEMI three days ago is being prepared for transfer out of the ICU. The nurse notes the persistent presence of a deep, wide Q wave in leads V1, V2, and V3. The nurse understands that a pathologic Q wave indicates:",
+    options: [
+      "Ongoing, active myocardial ischemia.",
+      "Hyperkalemia.",
+      "Irreversible myocardial necrosis and scar tissue formation.",
+      "An impending ventricular tachyarrhythmia."
+    ],
+    correct: 2,
+    rationale: "A pathologic Q wave (defined as being wider than 0.04 seconds or deeper than one-third the height of the R wave) indicates the absence of electrical depolarization in that area of the heart. This signifies irreversible myocardial cell death (necrosis) and scar tissue formation. Once developed, pathologic Q waves typically remain on the patient's ECG permanently."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "As cardiac output drops in heart failure, decreased perfusion to the kidneys triggers the release of renin. This ultimately leads to the activation of the Renin-Angiotensin-Aldosterone System (RAAS). What is the primary physiological consequence of RAAS activation in the heart failure patient?",
+    options: [
+      "Profound systemic vasodilation",
+      "Increased excretion of sodium and water",
+      "Decreased sympathetic nervous system tone",
+      "Vasoconstriction and sodium/water retention"
+    ],
+    correct: 3,
+    rationale: "Activation of the RAAS is a compensatory mechanism attempting to raise blood pressure and perfuse vital organs. Angiotensin II is a potent vasoconstrictor (increasing afterload), and aldosterone promotes sodium and water retention by the kidneys (increasing preload). In the setting of a failing heart, these mechanisms are maladaptive, ultimately worsening volume overload and cardiac workload."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with HFrEF is preparing for discharge. The provider switches the patient from an ACE inhibitor to an ARNI (sacubitril/valsartan) to optimize Guideline-Directed Medical Therapy (GDMT). The nurse must ensure that the patient undergoes a 'washout period' of how many hours between the last dose of the ACE inhibitor and the first dose of the ARNI?",
+    options: [
+      "12 hours",
+      "24 hours",
+      "36 hours",
+      "48 hours"
+    ],
+    correct: 2,
+    rationale: "When transitioning a patient from an ACE inhibitor to an Angiotensin Receptor-Neprilysin Inhibitor (ARNI), a mandatory 36-hour washout period is required before initiating the ARNI. Taking the two medications too close together dramatically increases the risk of severe, life-threatening angioedema. (Note: If transitioning from an ARB to an ARNI, this washout period is not required)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is scheduled for a balloon valvuloplasty to treat a stenotic valve that is preventing forward blood flow from the left atrium into the left ventricle. The nurse knows this procedure is targeting the:",
+    options: [
+      "Tricuspid Valve",
+      "Mitral (Bicuspid) Valve",
+      "Aortic Valve",
+      "Pulmonic Valve"
+    ],
+    correct: 1,
+    rationale: "The mitral valve (also known as the bicuspid valve) is located between the left atrium and the left ventricle. The tricuspid valve separates the right atrium and right ventricle. The aortic and pulmonic valves are semilunar valves that separate the ventricles from the aorta and pulmonary artery, respectively."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While monitoring a patient admitted for chest pain, the nurse notices that the previously upright T waves in leads V3 and V4 have become inverted. The patient denies current pain. The nurse recognizes that T-wave inversion is a primary electrocardiographic sign of:",
+    options: [
+      "Myocardial Ischemia",
+      "Myocardial Infarction",
+      "Bundle Branch Block",
+      "Atrial enlargement"
+    ],
+    correct: 0,
+    rationale: "T-wave inversion indicates altered repolarization of the ventricles, which is the classic ECG manifestation of the Zone of Ischemia. It occurs when myocardial tissue is hypoxic due to inadequate blood flow, but has not yet progressed to actual tissue injury or necrosis."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with an Acute Myocardial Infarction (AMI) is experiencing severe, crushing chest pain that is unrelieved by three doses of sublingual nitroglycerin. The physician orders intravenous morphine. The nurse understands that morphine is beneficial in ACS not only for analgesia, but also because it:",
+    options: [
+      "Dissolves the coronary artery thrombus.",
+      "Decreases myocardial oxygen demand by reducing preload and anxiety.",
+      "Increases the heart rate to improve cardiac output.",
+      "Acts as a potent positive inotrope."
+    ],
+    correct: 1,
+    rationale: "Morphine is the analgesic of choice for AMI pain unrelieved by nitroglycerin. In addition to providing severe pain relief and reducing sympathetic anxiety, morphine acts as a mild venodilator. This decreases venous return to the heart (reduces preload), which ultimately decreases the workload and oxygen demand of the ischemic myocardium."
+  },
+        const allQuestions = [
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted to the critical care unit with acute decompensated heart failure. Upon assessment, the nurse notes dyspnea, orthopnea, a persistent cough, and crackles auscultated bilaterally in the lungs. These findings are most indicative of:",
+    options: [
+      "Right-sided heart failure",
+      "Left-sided heart failure",
+      "Pulmonary embolism",
+      "Cardiac tamponade"
+    ],
+    correct: 1,
+    rationale: "Left-sided heart failure is characterized by the left ventricle's inability to effectively pump blood into the systemic circulation, causing blood to back up into the left atrium and pulmonary vasculature. This leads to pulmonary congestion, which manifests as dyspnea, orthopnea (difficulty breathing while lying flat), paroxysmal nocturnal dyspnea, persistent cough, and crackles in the lungs."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During the physical examination of a patient with chronic heart failure, the nurse observes pronounced jugular venous distention (JVD), 3+ pitting peripheral edema in the lower extremities, and an enlarged, tender liver (hepatomegaly). These signs are hallmark manifestations of:",
+    options: [
+      "Left-sided heart failure",
+      "Right-sided heart failure",
+      "Acute Myocardial Infarction",
+      "Variant Angina"
+    ],
+    correct: 1,
+    rationale: "Right-sided heart failure results in the ineffective pumping of the right ventricle, causing blood to back up into the right atrium and the systemic peripheral circulation. This systemic fluid accumulation presents classically as jugular venous distention (JVD), peripheral edema, ascites, and hepatosplenomegaly (liver engorgement)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A physician is inserting a pulmonary artery catheter (PAC) at the bedside. As the catheter is advanced, the nurse closely monitors the ECG. The monitor suddenly displays a run of premature ventricular contractions (PVCs). The nurse knows this is most likely caused by:",
+    options: [
+      "Mechanical irritation of the endocardium as the catheter passes through the right ventricle.",
+      "Spontaneous rupture of the pulmonary artery balloon.",
+      "Ischemia caused by the catheter occluding the coronary sinus.",
+      "The patient holding their breath during the procedure."
+    ],
+    correct: 0,
+    rationale: "During the insertion of a PAC, ventricular dysrhythmias (such as PVCs or short runs of ventricular tachycardia) are a common complication. They are caused when the catheter whips against or mechanically irritates the endocardium of the right ventricular wall as it passes through the right ventricle on its way to the pulmonary artery."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "When obtaining a pulmonary capillary wedge pressure (PCWP) via a pulmonary artery catheter, the nurse inflates the balloon. What is the maximum amount of air that should be used to inflate the balloon, and how long should it remain inflated?",
+    options: [
+      "3.0 mL of air, left inflated for 30 seconds",
+      "1.5 mL of air, left inflated for no longer than 10 to 15 seconds",
+      "2.0 mL of normal saline, left inflated for 15 seconds",
+      "1.0 mL of air, left inflated continuously until the next reading"
+    ],
+    correct: 1,
+    rationale: "The PAC balloon should be inflated with a maximum of 1.25 to 1.5 mL of air (usually dedicated 1.5 mL syringes are provided). It should only be inflated long enough to obtain the wedge pressure reading and never left inflated for longer than 10 to 15 seconds (or two respiratory cycles) to prevent pulmonary infarction or pulmonary artery rupture. Liquid should never be used to inflate the balloon."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient in the ICU has a cardiac output (CO) of 4.2 L/min. The provider asks for the patient's Cardiac Index (CI) because the patient is morbidly obese. The nurse knows that Cardiac Index is calculated by:",
+    options: [
+      "Dividing the cardiac output by the patient's heart rate.",
+      "Dividing the cardiac output by the patient's body surface area (BSA).",
+      "Multiplying the stroke volume by the systemic vascular resistance.",
+      "Subtracting the pulmonary artery wedge pressure from the cardiac output."
+    ],
+    correct: 1,
+    rationale: "Cardiac Index (CI) is calculated by dividing the Cardiac Output (CO) by the patient's Body Surface Area (BSA) (CI = CO / BSA). This indexes the cardiac output to the patient's specific body size, making it a much more accurate parameter for evaluating pump effectiveness than cardiac output alone."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with heart failure is prescribed an Angiotensin-Converting Enzyme (ACE) inhibitor (e.g., enalapril). During a follow-up visit, the patient complains of a persistent, nagging, nonproductive cough. The nurse anticipates the provider will likely:",
+    options: [
+      "Prescribe a cough suppressant and continue the ACE inhibitor.",
+      "Switch the patient to an Angiotensin II Receptor Blocker (ARB).",
+      "Discontinue all afterload reducers entirely.",
+      "Add an antibiotic to treat the underlying respiratory infection."
+    ],
+    correct: 1,
+    rationale: "A chronic, nonproductive cough is the most common side effect of ACE inhibitors. If a patient is intolerant to an ACE inhibitor due to this cough, guidelines recommend switching the patient to an Angiotensin II Receptor Blocker (ARB) (such as losartan or valsartan) to provide similar afterload reduction and neurohormonal blockade without the cough side effect."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse is providing discharge teaching to a patient with chronic heart failure. The nurse emphasizes the importance of daily weights to monitor fluid retention. The nurse teaches the patient that a weight gain of 1 kilogram (2.2 lbs) represents approximately how much retained fluid?",
+    options: [
+      "250 mL",
+      "500 mL",
+      "1,000 mL (1 Liter)",
+      "2,000 mL (2 Liters)"
+    ],
+    correct: 2,
+    rationale: "Daily weights are a critical monitoring parameter for patients with heart failure. A weight gain of 1 kilogram exactly equals 1,000 cc (1 Liter) of fluid retention. Sudden weight gain (e.g., 2-3 lbs in a day or 5 lbs in a week) is a primary indicator of worsening fluid volume overload."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient admitted with severe pulmonary edema secondary to acute decompensated heart failure is receiving intravenous furosemide (Lasix). Which of the following laboratory values must the nurse monitor most closely during this therapy?",
+    options: [
+      "Serum Calcium",
+      "Serum Potassium",
+      "White Blood Cell (WBC) count",
+      "Prothrombin Time (PT)"
+    ],
+    correct: 1,
+    rationale: "Furosemide (Lasix) is a loop diuretic that inhibits the reabsorption of sodium and chloride in the loop of Henle, leading to massive fluid excretion. A primary and dangerous side effect of loop diuretics is the profound excretion of potassium, leading to hypokalemia, which can trigger lethal cardiac dysrhythmias."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While evaluating the monitor of a patient with a pulmonary artery catheter, the nurse notices that the continuous pulmonary artery (PA) waveform has flattened into a pattern resembling a pulmonary capillary wedge pressure (PCWP), even though the balloon is deflated. What is the nurse's priority action?",
+    options: [
+      "Vigorously flush the catheter with the pressurized flush system.",
+      "Inflate the balloon with 1.5 mL of air to dislodge it.",
+      "Instruct the patient to cough and breathe deeply, or gently reposition the patient.",
+      "Turn off the monitor alarms and document the PCWP."
+    ],
+    correct: 2,
+    rationale: "If the catheter spontaneously wedges (indicated by a wedge waveform when the balloon is deflated), it may have migrated too far distally into a smaller branch of the pulmonary artery. The nurse should first attempt non-invasive measures like asking the patient to cough and breathe deeply or repositioning the patient to help the catheter float back. If unsuccessful, the physician must be notified immediately to pull the catheter back, as prolonged wedging causes pulmonary infarction. The catheter should never be flushed while in a wedge position."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with normal sinus rhythm suddenly goes into rapid atrial fibrillation. The nurse notes a drop in the patient's blood pressure and cardiac output. The nurse understands this hemodynamic compromise is primarily due to the loss of the 'atrial kick,' which normally contributes what percentage of ventricular filling volume?",
+    options: [
+      "5% to 10%",
+      "20% to 40%",
+      "50% to 60%",
+      "70% to 80%"
+    ],
+    correct: 1,
+    rationale: "During normal diastole, passive filling accounts for the majority of blood entering the ventricles, but the final active contraction of the atria (the 'atrial kick') contributes 20% to 40% of the ventricular filling volume. When a patient develops atrial fibrillation, the atria quiver instead of contracting, leading to the loss of this atrial kick and a potential significant decrease in stroke volume and cardiac output."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted to the ICU with severe shortness of breath. The physician orders a B-type Natriuretic Peptide (BNP) level to help differentiate between a pulmonary and a cardiac etiology. The nurse knows that elevated BNP levels are a key indicator of:",
+    options: [
+      "Acute myocardial infarction (AMI)",
+      "Heart failure and ventricular stretch",
+      "Pulmonary embolism",
+      "Acute renal failure"
+    ],
+    correct: 1,
+    rationale: "B-type natriuretic peptide (BNP) is a neurohormone released from the ventricles of the heart in response to excessive stretching and fluid volume overload. Elevated BNP levels are a specific and highly reliable laboratory indicator for the diagnosis of heart failure."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with chronic heart failure and atrial fibrillation is prescribed Digoxin (Lanoxin). The nurse understands that Digoxin improves cardiac performance through which primary mechanism of action?",
+    options: [
+      "It acts as a positive chronotrope, increasing the heart rate.",
+      "It acts as a potent vasodilator, drastically reducing afterload.",
+      "It inhibits the sodium-potassium ATPase pump, increasing intracellular calcium and the force of contraction.",
+      "It blocks beta-1 receptors, decreasing the workload of the heart."
+    ],
+    correct: 2,
+    rationale: "Digoxin is a cardiac glycoside (positive inotrope). It works by inhibiting the sodium-potassium ATPase pump in the myocardial cells. This inhibition leads to an accumulation of intracellular sodium, which in turn causes an accumulation of intracellular calcium. The increased calcium significantly increases the force of the myocardial contraction (positive inotropic effect)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "When reviewing the four pillars of Guideline-Directed Medical Therapy (GDMT) for a patient with Heart Failure with Reduced Ejection Fraction (HFrEF), the nurse notes the inclusion of an SGLT2 inhibitor (e.g., dapagliflozin or empagliflozin). The patient asks, 'I don't have diabetes, why am I taking this?' What is the best response by the nurse?",
+    options: [
+      "This medication prevents your blood sugar from dropping too low while taking beta-blockers.",
+      "This medication is given to all patients in the hospital to prevent stress-induced diabetes.",
+      "SGLT2 inhibitors have been proven to have significant benefits for heart failure, reducing hospitalizations and improving survival, even in patients without diabetes.",
+      "It is used exclusively to lower your heart rate during episodes of atrial fibrillation."
+    ],
+    correct: 2,
+    rationale: "SGLT2 inhibitors (like dapagliflozin and empagliflozin) are established as the fourth pillar of GDMT for HFrEF. Robust clinical trials demonstrated that they significantly improve outcomes and reduce mortality in heart failure patients, and these cardiac benefits occur regardless of whether the patient has diabetes or not."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The nurse inflates the balloon of the pulmonary artery catheter to obtain a Pulmonary Artery Wedge Pressure (PAWP). The monitor displays a value of 8 mm Hg. How should the nurse interpret this finding?",
+    options: [
+      "It is abnormally low, indicating severe hypovolemia.",
+      "It is within the normal expected range.",
+      "It is elevated, indicating impending left-sided heart failure.",
+      "It is critically high, indicating cardiogenic shock."
+    ],
+    correct: 1,
+    rationale: "The normal range for Pulmonary Artery Wedge Pressure (PAWP) or Pulmonary Capillary Wedge Pressure (PCWP) is generally 4 to 12 mm Hg (or 4-15 mm Hg depending on the specific text, but 8 mm Hg falls comfortably within the normal range in all critical care references). It reflects a normal left ventricular end-diastolic pressure."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While attempting to measure a PAWP, the critical care nurse injects 1.5 mL of air into the balloon port of the pulmonary artery catheter but feels absolutely no resistance. The monitor waveform remains unchanged in the pulmonary artery pattern, and a small amount of blood appears in the balloon lumen. What complication does the nurse suspect?",
+    options: [
+      "Pulmonary artery perforation",
+      "Balloon rupture",
+      "Catheter knotting in the right ventricle",
+      "Spontaneous wedging"
+    ],
+    correct: 1,
+    rationale: "If no resistance is felt during balloon inflation, if the waveform fails to transition to a wedge pattern, or if blood is returned through the balloon inflation port, these are classic signs of balloon rupture. The nurse must immediately stop inflation attempts, turn the patient on their left side if an air embolus is suspected, and notify the physician."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "In a patient with heart failure, a decreased cardiac output results in decreased renal perfusion. The kidneys respond by releasing renin, which activates the Renin-Angiotensin-Aldosterone System (RAAS). What is the ultimate physiological effect of this neurohormonal activation?",
+    options: [
+      "Profound systemic vasodilation and increased urine output.",
+      "Decreased sympathetic nervous system activity and bradycardia.",
+      "Vasoconstriction, sodium retention, and water retention.",
+      "Relaxation of the myocardial fibers to decrease contractility."
+    ],
+    correct: 2,
+    rationale: "The RAAS is activated as a compensatory response to perceived low blood volume (low cardiac output). Angiotensin II causes potent systemic vasoconstriction (increasing afterload), and aldosterone causes the kidneys to retain sodium and water (increasing preload). While meant to preserve blood pressure, in the setting of heart failure, this mechanism is maladaptive, creating volume overload and increasing the workload of the failing heart."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with HFrEF is being optimized on their core medications. The nurse knows that only specific beta-blockers have been proven to reduce mortality in heart failure. Which of the following medications is an evidence-based beta-blocker approved for this GDMT pillar?",
+    options: [
+      "Propranolol",
+      "Atenolol",
+      "Carvedilol",
+      "Labetalol"
+    ],
+    correct: 2,
+    rationale: "According to the four pillars of GDMT for HFrEF, the specific, evidence-based beta-blockers proven to improve survival and reduce mortality are Carvedilol, Metoprolol succinate, and Bisoprolol."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The nurse assesses an arterial line monitor and notes an overdamped waveform (a smaller waveform with a slow rise and an absent dicrotic notch). The blood pressure reading is inaccurately low. Which of the following interventions should the nurse perform first?",
+    options: [
+      "Check the system for loose connections, kinks, or air bubbles, and aspirate for clots.",
+      "Raise the transducer to a level above the patient's head.",
+      "Immediately inflate the pressure bag to 500 mm Hg.",
+      "Administer a fluid bolus to increase the patient's blood pressure."
+    ],
+    correct: 0,
+    rationale: "An overdamped waveform with a diminished or absent dicrotic notch indicates a technical problem with the monitoring system, not necessarily a physiological drop in the patient's blood pressure. The nurse should check for loose connections, cracked transducers, kinks in the tubing, air bubbles, or partial occlusion by a clot (which should be aspirated per policy)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with right-sided heart failure has a central venous pressure (CVP) catheter in place. The nurse records a CVP reading of 16 mm Hg. The nurse interprets this value as:",
+    options: [
+      "Normal right atrial pressure",
+      "Elevated right ventricular preload indicating fluid volume overload",
+      "Decreased left ventricular afterload",
+      "Abnormally low right atrial pressure indicating hypovolemia"
+    ],
+    correct: 1,
+    rationale: "The normal CVP (right atrial pressure) is 2 to 6 mm Hg (or 3-8 mm Hg). A CVP of 16 mm Hg is significantly elevated. An elevated CVP indicates increased right ventricular preload, which is consistent with right-sided heart failure, venous congestion, or systemic fluid volume overload."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient arrives in the emergency department experiencing acute decompensated heart failure with severe dyspnea, orthopnea, and an oxygen saturation of 86%. What is the nurse's immediate priority intervention?",
+    options: [
+      "Instruct the patient to lie completely flat to promote venous return.",
+      "Position the patient comfortably with the head of the bed elevated and administer oxygen.",
+      "Prepare the patient for immediate intubation and mechanical ventilation.",
+      "Administer a rapid 1,000 mL normal saline fluid bolus to increase cardiac output."
+    ],
+    correct: 1,
+    rationale: "The immediate priority for a patient in acute decompensated heart failure with pulmonary edema is to improve oxygenation and reduce preload. Positioning the patient upright (elevating the head of the bed or sitting them up) decreases venous return to the heart (reducing orthopnea) and allows for maximal lung expansion. Oxygen is administered to correct hypoxemia. A fluid bolus would worsen the pulmonary edema."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient presents to the emergency department with chest pain. The nurse is taking a detailed history to differentiate between stable angina and unstable angina. Which of the following patient statements is most characteristic of unstable (preinfarction) angina?",
+    options: [
+      "\"The pain usually lasts about 1 to 5 minutes and goes away.\"",
+      "\"I only get this squeezing pain in my chest when I walk up a flight of stairs.\"",
+      "\"The pain was much more intense this time, lasted longer than 5 minutes, and my nitroglycerin only gave me partial relief.\"",
+      "\"The pain completely disappeared after I sat down and rested for a few minutes.\""
+    ],
+    correct: 2,
+    rationale: "Unstable angina (also called preinfarction angina) is characterized by pain that is more intense than stable angina, lasts longer than 5 minutes, occurs more frequently, and is not fully relieved by rest or nitroglycerin. Stable angina is predictable, triggered by exercise or activity, typically lasts 1 to 5 minutes, and is completely relieved by rest or nitroglycerin."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted with an acute inferior wall myocardial infarction (MI). The nurse notes distended neck veins (JVD), hypotension, and clear breath sounds. The provider suspects right ventricular involvement. Based on this presentation, the nurse should anticipate which of the following primary interventions?",
+    options: [
+      "Immediate administration of intravenous nitroglycerin to reduce preload.",
+      "Intravenous fluid resuscitation to maintain right ventricular filling pressures.",
+      "Administration of aggressive loop diuretics to clear systemic congestion.",
+      "Immediate administration of beta-blockers to reduce the heart rate."
+    ],
+    correct: 1,
+    rationale: "A right ventricular MI commonly occurs with an inferior wall MI and presents with hypotension, JVD, and clear breath sounds. Because the right ventricle is failing to pump blood effectively to the left side of the heart, the treatment relies heavily on maintaining adequate preload with intravenous fluid resuscitation. Medications that reduce preload, such as nitrates and diuretics, can cause severe hemodynamic compromise and hypotension in these patients and must be used with extreme caution or avoided."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient in the intensive care unit is receiving Amiodarone for the treatment of recurrent ventricular dysrhythmias. According to the Vaughan-Williams Classification of Antiarrhythmic Drugs, the nurse knows that Amiodarone belongs to Class III, which works primarily by blocking which of the following?",
+    options: [
+      "Sodium Channels",
+      "Beta-Adrenergic Receptors",
+      "Potassium Channels",
+      "Calcium Channels"
+    ],
+    correct: 2,
+    rationale: "According to the Vaughan-Williams Classification, Class III antiarrhythmic drugs (such as Amiodarone, Sotalol, and Ibutilide) work primarily via Potassium Channel Blockade. Class I drugs block sodium channels, Class II drugs are beta-blockers, and Class IV drugs are calcium channel blockers."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient arrives at the emergency department exactly 2 hours after the onset of severe, crushing chest pain. The physician orders a panel of cardiac biomarkers. The nurse understands that which of the following biomarkers is typically the first to elevate following an acute myocardial infarction?",
+    options: [
+      "Troponin I",
+      "Creatine kinase-MB (CK-MB)",
+      "Myoglobin",
+      "Troponin T"
+    ],
+    correct: 2,
+    rationale: "Myoglobin is a hemoprotein found in cardiac and skeletal muscle that is released with muscle damage; it is the earliest marker to elevate, doing so within 1 to 4 hours (sometimes as early as 30 minutes to 2 hours) after the onset of an acute myocardial infarction, and peaks within 6 to 12 hours. Troponin and CK-MB typically begin to elevate 3 to 12 hours after the ischemic event."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is diagnosed with a ST-segment elevation myocardial infarction (STEMI). To salvage the myocardium and improve outcomes, evidence-based guidelines dictate specific timeframes for reperfusion therapies. If primary percutaneous coronary intervention (PCI) is planned, the occluded vessel should be opened within how many minutes of the patient's arrival?",
+    options: [
+      "30 minutes",
+      "60 minutes",
+      "90 minutes",
+      "120 minutes"
+    ],
+    correct: 2,
+    rationale: "Evidence-based acute management for a STEMI dictates that if primary PCI is the chosen reperfusion strategy, the culprit vessel should be opened within 90 minutes of the patient's arrival. If a fibrinolytic agent is used instead, it should be initiated within 30 minutes of arrival."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with a history of heart failure and a left ventricular ejection fraction of 35% is prescribed Captopril. The nurse educates the patient about this medication, noting that it belongs to a class of drugs that prevents the conversion of angiotensin I to angiotensin II. What is a common, distinct adverse effect of this drug class?",
+    options: [
+      "Severe hypokalemia",
+      "A chronic, nonproductive cough",
+      "Sudden visual disturbances (halos)",
+      "Tachycardia"
+    ],
+    correct: 1,
+    rationale: "Captopril is an Angiotensin-Converting Enzyme (ACE) inhibitor, a class of drugs that commonly end in the suffix '-pril'. A common side effect of ACE inhibitors is a chronic, nonproductive cough. Other significant side effects include hypotension, renal impairment, and hyperkalemia (not hypokalemia)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient who recently suffered an acute myocardial infarction suddenly exhibits profound hypotension, severely distended neck veins, and heart sounds that are distinctly muffled upon auscultation. The nurse immediately recognizes this triad of symptoms as indicative of which life-threatening complication?",
+    options: [
+      "Left-sided heart failure",
+      "Pulmonary embolism",
+      "Cardiac tamponade",
+      "Cardiogenic shock"
+    ],
+    correct: 2,
+    rationale: "The presence of hypotension, distended neck veins, and muffled heart sounds constitutes Beck's triad, which are the classic hallmark signs of cardiac tamponade. This is a life-threatening emergency requiring prompt intervention to relieve the fluid compressing the heart."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While analyzing a patient's 12-lead ECG, the critical care nurse measures the QT interval. The nurse knows that the QT interval measures the total time taken for ventricular depolarization and repolarization. An abnormally prolonged QT interval places the patient at high risk for which of the following?",
+    options: [
+      "First-degree AV block",
+      "Lethal dysrhythmias, such as ventricular tachycardia and ventricular fibrillation",
+      "Atrial fibrillation",
+      "Premature atrial contractions (PACs)"
+    ],
+    correct: 1,
+    rationale: "The QT interval represents the total time required for ventricular depolarization and repolarization. Abnormal prolongation of the QT interval increases the heart's vulnerability to lethal dysrhythmias, specifically ventricular tachycardia and ventricular fibrillation."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During a myocardial infarction, three distinct zones of tissue damage occur: ischemia, injury, and necrosis. Which electrocardiographic change represents the zone of acute myocardial injury?",
+    options: [
+      "Development of pathologic Q waves",
+      "T-wave inversion",
+      "ST-segment elevation of 1 mm or more",
+      "Prolongation of the PR interval"
+    ],
+    correct: 2,
+    rationale: "In the evolution of a myocardial infarction, the zone of acute myocardial injury is most often indicated on the ECG by ST-segment elevation of 1 mm or more above the baseline in the leads facing the infarcted area. T-wave inversion indicates the zone of ischemia, and pathologic Q waves represent the zone of necrosis (dead tissue)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient in severe cardiogenic shock secondary to a massive MI has a significantly reduced cardiac output. The provider orders a continuous intravenous infusion of Dobutamine. The nurse understands that this medication is classified as an inotrope, which means its primary intended effect is to:",
+    options: [
+      "Increase the heart rate.",
+      "Induce systemic vasodilation to reduce afterload.",
+      "Increase myocardial contractility.",
+      "Promote rapid diuresis of excess fluid."
+    ],
+    correct: 2,
+    rationale: "Dobutamine is a positive inotropic agent. Inotropes affect the intracellular calcium levels in the heart muscle, resulting in an increase in the force of myocardial contraction (increased contractility), which subsequently improves cardiac output and organ perfusion."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient's 12-lead ECG shows ST-segment elevation of 3 mm in leads V1, V2, V3, and V4. The nurse correctly identifies this as an acute infarction of which myocardial wall, primarily supplied by which coronary artery?",
+    options: [
+      "Inferior wall; Right Coronary Artery (RCA)",
+      "Anterior wall; Left Anterior Descending (LAD) artery",
+      "Lateral wall; Circumflex artery",
+      "Posterior wall; Right Coronary Artery (RCA)"
+    ],
+    correct: 1,
+    rationale: "ST-segment elevation in the precordial leads V1 through V4 indicates an acute anterior wall myocardial infarction. The anterior wall of the left ventricle and the anterior septum are primarily supplied by the Left Anterior Descending (LAD) coronary artery."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient presents to the emergency department complaining of sharp retrosternal chest pain. During the assessment, the nurse notes that the pain is exacerbated when the patient breathes deeply (inspiration) or lies flat, and it is significantly relieved when the patient sits up and leans forward. These clinical manifestations strongly suggest:",
+    options: [
+      "Stable Angina",
+      "Aortic Dissection",
+      "Pericarditis",
+      "Variant (Prinzmetal's) Angina"
+    ],
+    correct: 2,
+    rationale: "Patients with pericarditis typically complain of sharp retrosternal pain that worsens on inspiration, movement, or lying down, and is characteristically relieved by sitting forward or expanding the thoracic cavity. A pericardial friction rub may also be auscultated. This presentation helps differentiate pericardial inflammation from acute myocardial ischemia."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The nurse is assessing a patient with a long-standing history of chronic obstructive pulmonary disease (COPD) who now presents with worsening right-sided heart failure (cor pulmonale). Which cluster of physical assessment findings should the nurse expect?",
+    options: [
+      "Dyspnea, orthopnea, and crackles in the lung bases.",
+      "Jugular venous distention (JVD), hepatomegaly, and peripheral edema.",
+      "Pink, frothy sputum and an S3 heart sound.",
+      "Diminished pedal pulses, cyanosis, and cool extremities."
+    ],
+    correct: 1,
+    rationale: "Right-sided heart failure causes blood and pressure to back up into the systemic venous circulation. Classic assessment findings include jugular venous distention (JVD), enlarged liver (hepatomegaly), peripheral/dependent edema, and initially clear breath sounds (as the congestion is systemic, not pulmonary). Options A and C represent left-sided heart failure findings (pulmonary congestion)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse is measuring hemodynamic parameters using a pulmonary artery catheter. The nurse obtains a pulmonary artery wedge pressure (PAWP). This specific parameter is primarily used to evaluate:",
+    options: [
+      "Right atrial pressure and venous return.",
+      "Systemic vascular resistance.",
+      "Left ventricular end-diastolic pressure (LVEDP) and left-sided preload.",
+      "Pulmonary artery systolic pressure."
+    ],
+    correct: 2,
+    rationale: "Pulmonary artery pressure monitoring, specifically the pulmonary artery wedge pressure (PAWP) or occlusion pressure (PAOP), is used to indirectly measure and evaluate the left ventricular end-diastolic pressure (LVEDP), which represents left-sided preload. Right atrial pressure is measured by the central venous pressure (CVP)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is receiving Digoxin for the management of heart failure. The nurse monitors the patient closely for signs of toxicity. Which of the following findings would indicate potential Digoxin poisoning and toxicity?",
+    options: [
+      "A chronic, dry cough and hyperkalemia",
+      "Unusual tiredness, visual disturbances, and nausea/vomiting",
+      "Ringing in the ears (tinnitus) and hearing impairment",
+      "Severe hypotension and flushing"
+    ],
+    correct: 1,
+    rationale: "Digoxin is a cardiac glycoside that increases the force of the heart's contractions by inhibiting the Na+ K+ ATPase enzyme. Signs of digoxin toxicity and poisoning include visual disturbances, nausea or vomiting, arrhythmias, unusual tiredness, hallucinations, and anxiety. Tinnitus is associated with rapid IV administration of loop diuretics like furosemide."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A 12-lead ECG reveals ST-segment elevation in leads II, III, and aVF, confirming an acute inferior wall MI. Following evidence-based guidelines from the AHA and ACC, what specific action must the nurse or technician perform next to evaluate for right ventricular involvement?",
+    options: [
+      "Record posterior leads V7, V8, and V9.",
+      "Obtain right-sided chest leads V3R through V6R, particularly noting V4R.",
+      "Perform a prolonged rhythm strip on lead II to check for heart blocks.",
+      "Increase the voltage calibration of the standard precordial leads."
+    ],
+    correct: 1,
+    rationale: "Because right ventricular MI occurs in up to 45% of inferior MIs, the AHA and ACC recommend that right-sided chest leads (V3R through V6R) be recorded in all patients presenting with ECG evidence of an acute inferior wall infarction. Lead V4R is the most sensitive and specific lead for the recognition of right ventricular MI."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "Because standard 12-lead ECGs do not have leads that directly face the posterior wall of the heart, a posterior MI must often be identified through reciprocal changes in the anterior leads. Which specific ECG findings in leads V1 through V3 are indicative of an acute posterior MI?",
+    options: [
+      "ST-segment elevation and pathological Q waves.",
+      "ST-segment depression, tall upright T waves, and tall R waves.",
+      "Flattened T waves and prolonged PR intervals.",
+      "Complete bundle branch block patterns."
+    ],
+    correct: 1,
+    rationale: "A posterior wall MI produces mirror-image (reciprocal) changes in the anterior leads (V1 through V3). Instead of recording Q waves and ST elevation, these leads record the exact opposite: a taller R wave than normal (mirror image of a Q wave), ST-segment depression (mirror image of ST elevation), and upright, tall T waves (mirror image of T-wave inversion). To confirm, posterior leads V7-V9 can be placed."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is admitted with profound shortness of breath. The physician orders a B-type natriuretic peptide (BNP) level to confirm a diagnosis of acute decompensated heart failure. A BNP level greater than which of the following values typically indicates significant heart failure?",
+    options: [
+      "10 pg/mL",
+      "100 pg/mL",
+      "400 pg/mL",
+      "1,000 pg/mL"
+    ],
+    correct: 2,
+    rationale: "BNP is monitored to determine if acute coronary syndrome symptoms or severe dyspnea are related to heart failure. According to clinical parameters, a BNP greater than 400 pg/mL usually indicates significant heart failure. The higher the value, the poorer the prognosis for the patient."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is prescribed Verapamil to control their ventricular rate during an episode of atrial fibrillation. The nurse understands that according to the Vaughan-Williams classification, Verapamil is a Class IV antiarrhythmic agent. What is the mechanism of action for this class?",
+    options: [
+      "Sodium channel blockade",
+      "Beta-adrenergic blockade",
+      "Potassium channel blockade",
+      "Calcium channel blockade"
+    ],
+    correct: 3,
+    rationale: "Under the Vaughan-Williams Classification of Antiarrhythmic Drugs, Class IV agents act via Calcium Channel Blockade. Medications in this class include Verapamil and Diltiazem."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While reviewing a patient's chart, the nurse sees an old 12-lead ECG that demonstrates pathologic Q waves in leads V1 through V4, with ST segments that have returned to baseline. The nurse knows that a Q wave is considered pathologic and indicative of irreversible myocardial necrosis when it meets which measurement criteria?",
+    options: [
+      "It is greater than 0.04 seconds wide and at least 25% of the overall QRS height.",
+      "It is strictly greater than 0.12 seconds wide.",
+      "It deflects positively before dipping below the isoelectric line.",
+      "It is accompanied by a prolonged PR interval greater than 0.20 seconds."
+    ],
+    correct: 0,
+    rationale: "A pathologic Q wave indicates irreversible myocardial cell death (necrosis). To be considered pathologic (abnormal), the Q wave must measure more than 0.04 seconds (40 milliseconds) in width and be at least 25% or more of the overall height of the ensuing R wave (QRS complex)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse performs a square wave test (fast-flush test) on a patient’s arterial line. Upon releasing the flush valve, the monitor displays a sharply defined square wave, followed by a sudden drop below the baseline, and then three or four rapid oscillations before returning to the normal arterial waveform. The nurse interprets this system as being:",
+    options: [
+      "Optimally damped, providing accurate pressure readings.",
+      "Overdamped, which may result in a falsely low systolic pressure.",
+      "Underdamped, which may result in a falsely high systolic pressure.",
+      "Obstructed by a clot, requiring immediate removal of the catheter."
+    ],
+    correct: 2,
+    rationale: "An underdamped system is characterized by 'ringing' or multiple oscillations (usually more than two) following the square wave test. This excessive resonance causes artifactually high systolic readings and low diastolic readings. An optimally damped system shows one to two crisp oscillations before returning to baseline. An overdamped system shows a sluggish return with no oscillations, producing falsely low systolic readings."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient in cardiogenic shock has an arterial blood pressure of 88/52 mm Hg. To determine if the patient has adequate perfusion to vital organs, the nurse calculates the Mean Arterial Pressure (MAP). The patient’s MAP is approximately:",
+    options: [
+      "60 mm Hg",
+      "64 mm Hg",
+      "70 mm Hg",
+      "76 mm Hg"
+    ],
+    correct: 1,
+    rationale: "Mean Arterial Pressure (MAP) is calculated using the formula: MAP = (Systolic BP + [2 * Diastolic BP]) / 3. For this patient: (88 + [2 * 52]) / 3 = (88 + 104) / 3 = 192 / 3 = 64 mm Hg. A MAP of at least 65 mm Hg is generally required to maintain adequate perfusion to vital organs such as the brain and kidneys."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While interpreting a patient's ECG, the nurse notes that the P-P intervals are regular at a rate of 80 beats/min, and the R-R intervals are regular at a rate of 40 beats/min. However, there is absolutely no relationship between the P waves and the QRS complexes; they are completely independent of one another. The nurse identifies this rhythm as:",
+    options: [
+      "Second-Degree AV Block Type I (Wenckebach)",
+      "Second-Degree AV Block Type II (Mobitz II)",
+      "Third-Degree (Complete) AV Block",
+      "Sinus Bradycardia with frequent premature ventricular contractions"
+    ],
+    correct: 2,
+    rationale: "Third-degree AV block, or complete heart block, is characterized by AV dissociation. The SA node fires independently (creating regular P waves at a normal rate), and an escape pacemaker in the junction or ventricles fires independently (creating regular QRS complexes at a much slower rate). Because no impulses conduct through the AV node, the PR interval varies randomly, and there is no relationship between P waves and QRS complexes."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The nurse is reviewing the cardiac cycle and myocardial blood supply. The majority of the deoxygenated blood from the myocardial capillary bed drains into the cardiac veins. These veins primarily empty into which structure before returning to the right atrium?",
+    options: [
+      "The Inferior Vena Cava",
+      "The Superior Vena Cava",
+      "The Coronary Sinus",
+      "The Pulmonary Artery"
+    ],
+    correct: 2,
+    rationale: "After supplying oxygen and nutrients to the myocardial muscle, deoxygenated blood is collected by the cardiac veins (such as the great cardiac vein). The vast majority of this venous blood drains into a large venous channel on the posterior surface of the heart called the coronary sinus, which then empties directly into the right atrium."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient admitted with a severe gastrointestinal illness and profound hypomagnesemia experiences a sudden cardiac arrest. The monitor displays a wide-complex polymorphic ventricular tachycardia that appears to twist around the isoelectric baseline. The nurse recognizes this specific dysrhythmia as Torsades de Pointes. What is the priority pharmacological intervention?",
+    options: [
+      "Intravenous Amiodarone",
+      "Intravenous Magnesium Sulfate",
+      "Intravenous Calcium Gluconate",
+      "Intravenous Adenosine"
+    ],
+    correct: 1,
+    rationale: "Torsades de Pointes is a specific type of polymorphic ventricular tachycardia characterized by a QRS complex that twists around the baseline. It is frequently caused by a prolonged QT interval secondary to electrolyte imbalances, particularly hypomagnesemia. The first-line pharmacological treatment for Torsades de Pointes is intravenous Magnesium Sulfate."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient is diagnosed with Heart Failure with Preserved Ejection Fraction (HFpEF). The nurse understands that the primary pathophysiological defect in this specific type of heart failure is:",
+    options: [
+      "A massive dilation of the left ventricle preventing effective forward pumping.",
+      "A severely reduced stroke volume due to necrotic, scarred myocardial tissue.",
+      "A thick, stiff, noncompliant left ventricle that cannot adequately relax and fill with blood.",
+      "Complete incompetence of the mitral valve leading to severe regurgitation."
+    ],
+    correct: 2,
+    rationale: "HFpEF, or diastolic heart failure, is fundamentally a filling problem. The ejection fraction is normal or preserved (usually >= 50%), meaning the heart pumps effectively. However, the left ventricle is hypertrophied, stiff, and noncompliant. It cannot relax properly during diastole, which drastically reduces the amount of blood that can fill the chamber (decreased preload), ultimately decreasing total cardiac output."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "While evaluating an arterial blood pressure waveform, the nurse observes a distinct notch on the descending limb of the pressure wave. The nurse knows that this feature, called the dicrotic notch, represents which physiological event?",
+    options: [
+      "The opening of the mitral valve.",
+      "The closure of the aortic valve.",
+      "The beginning of ventricular systole.",
+      "The electrical depolarization of the Purkinje fibers."
+    ],
+    correct: 1,
+    rationale: "The dicrotic notch (incisura) on an arterial waveform signifies the closure of the aortic valve. This event marks the end of mechanical ventricular systole and the beginning of ventricular diastole. It occurs due to a brief retrograde flow of blood rebounding against the closed aortic valve."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient on telemetry exhibits a rhythm with a constant, consistent PR interval, but suddenly a P wave appears without a subsequent QRS complex. The next beat conducts normally with the same PR interval. The nurse interprets this as:",
+    options: [
+      "First-Degree AV Block",
+      "Second-Degree AV Block Type I (Wenckebach)",
+      "Second-Degree AV Block Type II (Mobitz II)",
+      "Premature Atrial Contraction (PAC)"
+    ],
+    correct: 2,
+    rationale: "Second-Degree AV Block Type II (Mobitz II) is characterized by a constant, unvarying PR interval for all conducted beats, interrupted by intermittently non-conducted P waves (dropped QRS complexes). This represents a severe conduction system disease below the AV node and carries a high risk of progressing to complete heart block. Type I (Wenckebach) has a progressively lengthening PR interval before the dropped beat."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient with HFrEF is prescribed sacubitril/valsartan, an Angiotensin Receptor-Neprilysin Inhibitor (ARNI). The nurse understands that the neprilysin-inhibitor component of this medication benefits the failing heart primarily by:",
+    options: [
+      "Directly increasing myocardial contractility.",
+      "Preventing the breakdown of endogenous natriuretic peptides (like BNP).",
+      "Blocking the sympathetic nervous system's chronotropic effects.",
+      "Decreasing the reabsorption of glucose in the renal tubules."
+    ],
+    correct: 1,
+    rationale: "Neprilysin is an enzyme that naturally breaks down vasoactive peptides, including Brain Natriuretic Peptide (BNP). By inhibiting neprilysin, sacubitril prevents the degradation of these natriuretic peptides, leading to prolonged vasodilation, enhanced sodium/water excretion (natriuresis/diuresis), and reduced myocardial fibrosis. The valsartan component simultaneously blocks the harmful RAAS pathway."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient becomes suddenly unresponsive. The bedside cardiac monitor shows a flatline (asystole). The nurse checks the patient and confirms pulselessness and apnea. The emergency response team arrives. Which intervention is contraindicated in the management of this rhythm?",
+    options: [
+      "Immediate initiation of high-quality CPR",
+      "Administration of Epinephrine 1 mg IV push",
+      "Defibrillation at 200 Joules",
+      "Confirmation of the rhythm in two separate leads"
+    ],
+    correct: 2,
+    rationale: "Asystole is the complete absence of ventricular electrical activity. Defibrillation (delivering a massive electrical shock) is intended to reset a chaotic electrical rhythm like Ventricular Fibrillation or Pulseless Ventricular Tachycardia. Shocking a heart that already has no electrical activity (asystole) is completely ineffective, is contraindicated, and wastes critical time. Management consists of continuous CPR and Epinephrine."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient in distributive (septic) shock is experiencing profound vasodilation. The nurse calculates the Systemic Vascular Resistance (SVR) from the patient's hemodynamic parameters and expects the value to be significantly decreased. SVR is a direct clinical measurement of which hemodynamic concept?",
+    options: [
+      "Right ventricular preload",
+      "Left ventricular afterload",
+      "Left ventricular contractility",
+      "Pulmonary vascular resistance"
+    ],
+    correct: 1,
+    rationale: "Systemic Vascular Resistance (SVR) is the resistance the left ventricle must overcome to eject blood into the systemic circulation. It is the primary determinant and clinical measurement of left ventricular afterload. In distributive shock, massive vasodilation causes SVR (afterload) to plummet, leading to profound hypotension."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient presents with acute chest pain. The 12-lead ECG reveals ST-segment elevation in leads II, III, and aVF, with reciprocal ST-segment depression in leads I and aVL. The nurse recognizes these changes indicate an acute infarction of which myocardial region?",
+    options: [
+      "Anterior Wall",
+      "Septal Wall",
+      "Lateral Wall",
+      "Inferior Wall"
+    ],
+    correct: 3,
+    rationale: "Leads II, III, and aVF look at the inferior wall of the left ventricle. ST-segment elevation in these contiguous leads is the diagnostic hallmark of an acute inferior wall myocardial infarction, which is most commonly caused by an occlusion of the Right Coronary Artery (RCA). Reciprocal changes (ST depression) are typically seen in the high lateral leads (I, aVL)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "Electrical impulses traveling from the SA node pause briefly at the AV node before continuing down into the ventricles. The nurse understands that this physiological delay is crucial because it allows for:",
+    options: [
+      "The ventricles to depolarize from the epicardium to the endocardium.",
+      "The Purkinje fibers to repolarize completely.",
+      "The atria to contract fully and empty their blood into the ventricles before ventricular systole begins.",
+      "The prevention of vagal nerve overstimulation."
+    ],
+    correct: 2,
+    rationale: "The AV node inherently slows down the electrical impulse (creating the PR interval on the ECG). This delay is physiologically critical because it gives the atria time to contract and actively pump their final volume of blood into the ventricles (the 'atrial kick') before the ventricles are stimulated to contract. If the atria and ventricles contracted simultaneously, cardiac output would plummet."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient's ECG rhythm strip demonstrates normal sinus rhythm, but suddenly the baseline is completely flat for 2.4 seconds. The rhythm then resumes with a normal P-QRS-T complex, but the new rhythm does not map out or align with the timing of the previous P-P intervals. The nurse interprets this as:",
+    options: [
+      "Sinus Arrhythmia",
+      "Sinus Arrest",
+      "Premature Atrial Contraction (PAC)",
+      "Second-Degree AV Block"
+    ],
+    correct: 1,
+    rationale: "Sinus arrest occurs when the SA node completely fails to generate an impulse for a period of time, creating a pause on the ECG. Because the SA node's intrinsic clock has been 'reset,' when the rhythm finally resumes, the new P waves will not map out or match the timing of the P-P intervals before the pause. If the timing did match perfectly, it would be an SA exit block."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A physician is placing a central venous catheter (CVC) in the right internal jugular vein. To obtain accurate Central Venous Pressure (CVP) readings, the nurse knows the distal tip of this catheter must rest precisely in which anatomical location?",
+    options: [
+      "The superior vena cava near the junction of the right atrium.",
+      "The right ventricle.",
+      "The pulmonary artery.",
+      "The inferior vena cava just above the hepatic vein."
+    ],
+    correct: 0,
+    rationale: "Central Venous Pressure (CVP) measures right atrial pressure and right ventricular preload. To obtain this reading accurately, the distal tip of the central venous catheter must be positioned in the lower third of the superior vena cava, right at or just above the cavoatrial junction (where the SVC meets the right atrium). If the tip enters the right ventricle, it can trigger lethal dysrhythmias and will measure RV pressure, not CVP."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A 65-year-old patient with a history of coronary artery disease reports feeling palpitations and dizziness. The monitor reveals a regular, rapid rhythm at a rate of 160 beats/min with completely wide QRS complexes (0.16 seconds). Every QRS complex looks identical in shape and amplitude. No P waves are visible. The nurse identifies this rhythm as:",
+    options: [
+      "Supraventricular Tachycardia (SVT) with aberrancy",
+      "Monomorphic Ventricular Tachycardia",
+      "Polymorphic Ventricular Tachycardia",
+      "Atrial Fibrillation with Rapid Ventricular Response"
+    ],
+    correct: 1,
+    rationale: "Monomorphic Ventricular Tachycardia originates from a single ectopic focus in the ventricles. It is characterized by a rapid rate, wide QRS complexes (> 0.12 seconds), absent P waves, and a uniform shape and morphology for every QRS complex. Polymorphic VT would have varying QRS shapes, and SVT typically has narrow QRS complexes unless an underlying bundle branch block exists."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "The nurse is conducting a continuing education seminar on cardiovascular pathophysiology. The nurse accurately explains that the underlying cause of an acute coronary syndrome (ACS), transitioning a patient from stable angina to an acute myocardial infarction, is primarily:",
+    options: [
+      "Gradual, slow thickening of a stable atherosclerotic plaque.",
+      "Sudden rupture of an unstable atherosclerotic plaque followed by rapid thrombus formation.",
+      "Severe, prolonged coronary artery vasospasm due to cold exposure.",
+      "A sudden, massive increase in myocardial oxygen demand."
+    ],
+    correct: 1,
+    rationale: "While stable angina is caused by a fixed, stable atherosclerotic plaque obstructing blood flow during exertion, Acute Coronary Syndrome (which includes Unstable Angina, NSTEMI, and STEMI) is almost always precipitated by the sudden rupture or erosion of an unstable plaque. This rupture exposes the lipid core to the bloodstream, triggering the clotting cascade and rapid formation of a thrombus that partially or completely occludes the artery."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A patient's heart rate drops to 42 beats/min. The patient is awake, alert, denies chest pain or shortness of breath, and has a blood pressure of 118/72 mm Hg. What is the most appropriate initial nursing action according to standard critical care algorithms?",
+    options: [
+      "Administer Atropine 1 mg IV push rapidly.",
+      "Prepare for immediate transcutaneous pacing.",
+      "Continue to monitor the patient closely and investigate potential causes.",
+      "Administer an Epinephrine infusion."
+    ],
+    correct: 2,
+    rationale: "Sinus bradycardia is defined as a regular sinus rhythm at a rate of less than 60 beats/min. Management is dictated entirely by whether the patient is symptomatic or hemodynamically unstable (e.g., hypotension, altered mental status, ischemic chest pain). Because this patient is completely asymptomatic and hemodynamically stable, no acute pharmacological intervention (like Atropine or pacing) is indicated; the nurse should simply monitor and assess for underlying causes (e.g., beta-blocker therapy, hypoxia, athlete status)."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "During the insertion of a pulmonary artery catheter (PAC), the nurse watches the monitor to track the catheter's anatomical location. The waveform suddenly changes from a low-pressure tracing with distinct 'a' and 'v' waves to a sharply rising and falling waveform with a systolic pressure of 25 mm Hg and a diastolic pressure of 2 mm Hg. The nurse knows the catheter tip has entered the:",
+    options: [
+      "Right Atrium",
+      "Right Ventricle",
+      "Pulmonary Artery",
+      "Pulmonary Capillary Wedge position"
+    ],
+    correct: 1,
+    rationale: "The right atrium has a low-pressure waveform (typically 2-8 mm Hg) with a and v waves. As the catheter crosses the tricuspid valve into the Right Ventricle, the waveform dramatically changes to a high, pulsatile pattern with a systolic pressure around 20-30 mm Hg and a very low diastolic pressure approaching zero (0-5 mm Hg). Once it enters the pulmonary artery, the diastolic pressure will rise significantly (8-15 mm Hg), and a dicrotic notch will appear."
+  },
+  {
+    topic: 'Hemodynamics & Cardiovascular',
+    q: "A critical care nurse is auscultating a patient's heart sounds. The nurse knows that the right atrioventricular valve, which prevents the backflow of blood from the right ventricle into the right atrium during ventricular systole, is the:",
+    options: [
+      "Mitral Valve",
+      "Aortic Valve",
+      "Pulmonic Valve",
+      "Tricuspid Valve"
+    ],
+    correct: 3,
+    rationale: "The tricuspid valve is a three-leaflet valve located between the right atrium and the right ventricle. It closes during ventricular systole to prevent regurgitation of blood back into the right atrium. The mitral (bicuspid) valve separates the left atrium and left ventricle."
+  }
 ];
+
+
+
 
         // Hemodynamics
         //
